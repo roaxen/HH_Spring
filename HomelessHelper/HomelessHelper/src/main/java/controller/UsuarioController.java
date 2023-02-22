@@ -26,7 +26,8 @@ public class UsuarioController {
 	public List<Usuario> retrieveUsuarios() {
 		return usuarioservice.retrieveUsuarios();
 	}
-	// si esto es para saber si el usuario y la contraseña son coreectoas tendria que ser un get 
+	
+	//not working
 	@PostMapping(value = "login", produces  = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody String email, @RequestBody String clave) {
 		return usuarioservice.checkUserExists(email, clave);
@@ -47,6 +48,7 @@ public class UsuarioController {
 		return String.valueOf(usuarioservice.updateUsuario(usuario));
 	}
 	
+	//not working
 	@PutMapping(value = "changeUserPwd", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String updatePassword(@RequestBody String email, @RequestBody String clave, @RequestBody String new_clave) {
 		return String.valueOf(usuarioservice.updatePassword(email, clave, new_clave));
