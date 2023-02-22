@@ -24,18 +24,18 @@ public class UsuarioController {
 	public List<Usuario> retrieveUsuarios() {
 		return usuarioservice.retrieveUsuarios();
 	}
-	
+	// si esto es para saber si el usuario y la contraseña son coreectoas tendria que ser un get 
 	@PostMapping(value = "login", produces  = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody String email, @RequestBody String clave) {
 		return usuarioservice.checkUserExists(email, clave);
 	}
 
-	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE) //mostrar usuario cuando el email es asi 
 	public Usuario retrieveUsuario(@PathVariable("email") String email) {
 		return usuarioservice.retrieveUsuario(email);
 	}
 
-	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE) // insertar usuario 
 	public String saveUsuario(@RequestBody Usuario usuario) {
 		return String.valueOf(usuarioservice.addUsuario(usuario));
 	}

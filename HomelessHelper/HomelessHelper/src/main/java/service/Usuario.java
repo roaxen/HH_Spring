@@ -1,9 +1,8 @@
-package model;
+package service;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -21,7 +20,7 @@ public class Usuario implements Serializable {
 	private String apellidos;
 
 	private String ciudad;
-	//@Column(length = 20, nullable = false)
+
 	private String clave;
 
 	@Temporal(TemporalType.DATE)
@@ -30,40 +29,14 @@ public class Usuario implements Serializable {
 
 	private String nombre;
 
-	//bi-directional many-to-one association to Lugar
-	@OneToMany(mappedBy="usuario")
-	private List<Lugar> lugars;
-
 	public Usuario() {
 	}
-
-	// Constuctor de Cuenta de kotlin 
-	public Usuario(String email,  String clave, String nombre) {
-		super();
-		this.email = email;
-		this.clave = clave;
-		this.nombre = nombre;
-		
-	}
 	
+	
+
 	public String getEmail() {
 		return this.email;
 	}
-	
-	
-
-	public Usuario(String email, String apellidos, String ciudad, String clave, Date fechaNac, String nombre) {
-		super();
-		this.email = email;
-		this.apellidos = apellidos;
-		this.ciudad = ciudad;
-		this.clave = clave;
-		this.fechaNac = fechaNac;
-		this.nombre = nombre;
-		
-	}
-
-
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -109,27 +82,4 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<Lugar> getLugars() {
-		return this.lugars;
-	}
-
-	public void setLugars(List<Lugar> lugars) {
-		this.lugars = lugars;
-	}
-
-	public Lugar addLugar(Lugar lugar) {
-		getLugars().add(lugar);
-		lugar.setUsuario(this);
-
-		return lugar;
-	}
-
-	public Lugar removeLugar(Lugar lugar) {
-		getLugars().remove(lugar);
-		lugar.setUsuario(null);
-
-		return lugar;
-	}
-
 }
-	
