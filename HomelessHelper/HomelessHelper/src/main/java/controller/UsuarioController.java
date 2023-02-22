@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import service.UsuarioService;
 import model.Usuario;
 
-// manue calvo
+// manuel calvo
 
 @RestController
 public class UsuarioController {
