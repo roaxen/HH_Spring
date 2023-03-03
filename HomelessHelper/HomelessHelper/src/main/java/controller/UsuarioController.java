@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import service.UsuarioService;
 import model.Usuario;
 
-// manuel calvo
-
 @RestController
 public class UsuarioController {
 	@Autowired
@@ -48,7 +46,6 @@ public class UsuarioController {
 		return String.valueOf(usuarioservice.updateUsuario(usuario));
 	}
 	
-	//not working
 	@PutMapping(value = "changeUserPwd", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String updatePassword(@RequestBody String email, @RequestBody String clave, @RequestBody String new_clave) {
 		return String.valueOf(usuarioservice.updatePassword(email, clave, new_clave));

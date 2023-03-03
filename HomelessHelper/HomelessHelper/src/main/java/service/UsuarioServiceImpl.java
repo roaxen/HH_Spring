@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean addUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		if (usuarioDao.retrieveUsuario(usuario.getEmail()) == null) {
+			
+			usuario.setClave(encrypt(usuario.getClave()));
+			
 			usuarioDao.addUsuario(usuario);
 			return true;
 		}
@@ -59,7 +63,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Usuario checkUserExists(String email, String clave) {
 		// TODO Auto-generated method stub
-		return usuarioDao.checkameUsuario(email, clave);
+		return usuarioDao.checkameUsuario(email, encrypt(clave));
 	}
 
 	@Override
@@ -67,10 +71,18 @@ public class UsuarioServiceImpl implements UsuarioService {
 		// TODO Auto-generated method stub
 		
 		if (usuarioDao.checkameUsuario(email, clave).getEmail() != null) {
-			usuarioDao.updateUsuario(checkUserExists(email, clave));
+			Usuario user = checkUserExists(email, encrypt(clave));
+			user.setClave(encrypt(new_clave));
+			usuarioDao.updateUsuario(user);
 			return true;
 		}
 		return false;
 	}
 
+	public String encrypt(String clave) {
+		
+		String claveCriptica = DigestUtils.md5Hex(clave);
+		
+		return claveCriptica;
+	}
 }
