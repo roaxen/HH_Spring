@@ -45,6 +45,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public void updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
+		
 		usuarioDao.save(usuario);
 	}
 	

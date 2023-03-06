@@ -6,10 +6,23 @@ public class Credenciales {
 	String email;
 	String new_clave;
 	
-	public Credenciales(String clave, String email) {
+	public Credenciales(String clave, String email, String new_clave) {
 		super();
 		this.clave = clave;
 		this.email = email;
+		this.new_clave = new_clave;
+	}
+
+	public Credenciales() {
+		super();
+	}
+
+	public String getNew_clave() {
+		return new_clave;
+	}
+
+	public void setNew_clave(String new_clave) {
+		this.new_clave = new_clave;
 	}
 
 	public String getClave() {

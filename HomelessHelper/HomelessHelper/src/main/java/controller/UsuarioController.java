@@ -31,12 +31,12 @@ public class UsuarioController {
 	    return usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
 	}
 
-	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE) //mostrar usuario cuando el email es asi 
+	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario retrieveUsuario(@PathVariable("email") String email) {
 		return usuarioservice.retrieveUsuario(email);
 	}
 
-	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE) // insertar usuario 
+	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE) 
 	public String saveUsuario(@RequestBody Usuario usuario) {
 		return String.valueOf(usuarioservice.addUsuario(usuario));
 	}
@@ -47,8 +47,8 @@ public class UsuarioController {
 	}
 	
 	@PutMapping(value = "changeUserPwd", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updatePassword(@RequestBody String email, @RequestBody String clave, @RequestBody String new_clave) {
-		return String.valueOf(usuarioservice.updatePassword(email, clave, new_clave));
+	public String updatePassword(@RequestBody Credenciales credenciales) {
+		return String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),credenciales.getNew_clave()));
 	}
 
 	@DeleteMapping(value = "user/{email}", produces = MediaType.APPLICATION_JSON_VALUE)

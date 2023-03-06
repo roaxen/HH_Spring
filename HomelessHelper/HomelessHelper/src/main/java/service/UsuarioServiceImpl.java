@@ -71,7 +71,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		// TODO Auto-generated method stub
 		
 		if (usuarioDao.checkameUsuario(email, encrypt(clave)).getEmail() != null) {
-			Usuario user = checkUserExists(email, encrypt(clave));
+			Usuario user = checkUserExists(email, clave);
 			user.setClave(encrypt(new_clave));
 			usuarioDao.updateUsuario(user);
 			return true;
