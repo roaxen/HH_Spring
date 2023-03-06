@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import service.UsuarioService;
 import model.Usuario;
+import model.Credenciales;
 
 @RestController
 public class UsuarioController {
@@ -26,10 +27,10 @@ public class UsuarioController {
 	}
 	
 	//not working
-	@PostMapping(value = "login", produces  = MediaType.APPLICATION_JSON_VALUE)
-	public Usuario loginUsuario(@RequestBody String email, @RequestBody String clave) {
-		System.out.println(email + clave);
-		return usuarioservice.checkUserExists(email, clave);
+	@PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Usuario loginUsuario(@RequestBody Credenciales credenciales) {
+	    System.out.println(credenciales.getEmail() + credenciales.getClave());
+	    return usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
 	}
 
 	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE) //mostrar usuario cuando el email es asi 
