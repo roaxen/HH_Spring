@@ -18,8 +18,8 @@ public interface UsuarioService {
 
 	Usuario retrieveUsuario(String email);
 	
-	Usuario checkUserExists(String email, String clave);
-
 	boolean updatePassword(String email, String clave, String new_clave);
+
+	Usuario checkUserExists(String email, String clave);
 
 }

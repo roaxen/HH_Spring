@@ -8,12 +8,12 @@ import jakarta.transaction.Transactional;
 import model.Usuario;
 
 public interface UsuarioJpaSpring extends JpaRepository<Usuario,String>{
+	
 	@Transactional
 	@Modifying
 	@Query("Delete from Usuario u Where u.email=?1")
 	void removeByEmail(String email);
 	
-	@Transactional
-	@Query("Select u from Usuario u Where u.email=?1 and u.clave=?2")
+	@Query("SELECT u FROM Usuario u WHERE u.email = ?1 and u.clave =?2")
 	Usuario checkUserExists(String email, String clave);
 	}

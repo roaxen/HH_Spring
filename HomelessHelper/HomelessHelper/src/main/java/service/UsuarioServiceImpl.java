@@ -70,7 +70,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean updatePassword(String email, String clave, String new_clave) {
 		// TODO Auto-generated method stub
 		
-		if (usuarioDao.checkameUsuario(email, clave).getEmail() != null) {
+		if (usuarioDao.checkameUsuario(email, encrypt(clave)).getEmail() != null) {
 			Usuario user = checkUserExists(email, encrypt(clave));
 			user.setClave(encrypt(new_clave));
 			usuarioDao.updateUsuario(user);

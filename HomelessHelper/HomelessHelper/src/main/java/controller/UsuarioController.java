@@ -28,6 +28,7 @@ public class UsuarioController {
 	//not working
 	@PostMapping(value = "login", produces  = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody String email, @RequestBody String clave) {
+		System.out.println(email + clave);
 		return usuarioservice.checkUserExists(email, clave);
 	}
 

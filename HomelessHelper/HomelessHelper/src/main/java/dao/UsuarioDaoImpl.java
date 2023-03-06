@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import model.Usuario;
 
 @Repository
@@ -52,6 +51,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public Usuario checkameUsuario(String email, String clave) {
 		// TODO Auto-generated method stub
+		
 		return usuarioDao.checkUserExists(email, clave);
 	}
 
