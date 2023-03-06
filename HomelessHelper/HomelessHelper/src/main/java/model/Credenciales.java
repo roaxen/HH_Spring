@@ -1,5 +1,5 @@
 package model;
-
+//para manu
 public class Credenciales {
 	
 	String clave;
