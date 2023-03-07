@@ -14,12 +14,13 @@ imagen blob
 -- --------------------------------------- entidades
 create table usuario(
 email varchar(50) primary key,
-clave varchar(16),
+clave varchar(32),
 nombre varchar(50),
 apellidos varchar(50),
 fecha_nac date,
 ciudad varchar(50)
 );
+
 
 create table lugar(
 id_lugar int primary key,
