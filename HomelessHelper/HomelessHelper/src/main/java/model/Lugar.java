@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-//manu puto calvo
+//manu puto calv
 
 /**
  * The persistent class for the lugar database table.
