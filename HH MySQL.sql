@@ -21,15 +21,17 @@ fecha_nac date,
 ciudad varchar(50)
 );
 
-
 create table lugar(
 id_lugar int primary key,
 tipo_lugar varchar(50),
+nombre varchar(40),
+descripcion text,
 ubicacion varchar(50),
 email_responsable varchar(50),
 telefono int,
 valoracion int,
-descripcion text,
+web varchar(50),
+imagen longblob,
 constraint fk_lugarusuario foreign key (email_responsable) references usuario(email)
 );
 
