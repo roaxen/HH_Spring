@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
 	private String apellidos;
 
 	private String ciudad;
-	//@Column(length = 20, nullable = false)
+
 	private String clave;
 
 	@Temporal(TemporalType.DATE)
@@ -37,33 +37,9 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	// Constuctor de Cuenta de kotlin 
-	public Usuario(String email,  String clave, String nombre) {
-		super();
-		this.email = email;
-		this.clave = clave;
-		this.nombre = nombre;
-		
-	}
-	
 	public String getEmail() {
 		return this.email;
 	}
-	
-	
-
-	public Usuario(String email, String apellidos, String ciudad, String clave, Date fechaNac, String nombre) {
-		super();
-		this.email = email;
-		this.apellidos = apellidos;
-		this.ciudad = ciudad;
-		this.clave = clave;
-		this.fechaNac = fechaNac;
-		this.nombre = nombre;
-		
-	}
-
-
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -132,4 +108,3 @@ public class Usuario implements Serializable {
 	}
 
 }
-	

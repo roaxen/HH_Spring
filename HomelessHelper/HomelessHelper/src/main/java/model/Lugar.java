@@ -20,6 +20,11 @@ public class Lugar implements Serializable {
 	@Lob
 	private String descripcion;
 
+	@Lob
+	private byte[] imagen;
+
+	private String nombre;
+
 	private int telefono;
 
 	@Column(name="tipo_lugar")
@@ -28,6 +33,8 @@ public class Lugar implements Serializable {
 	private String ubicacion;
 
 	private int valoracion;
+
+	private String web;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
@@ -51,6 +58,22 @@ public class Lugar implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public byte[] getImagen() {
+		return this.imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public int getTelefono() {
@@ -83,6 +106,14 @@ public class Lugar implements Serializable {
 
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
+	}
+
+	public String getWeb() {
+		return this.web;
+	}
+
+	public void setWeb(String web) {
+		this.web = web;
 	}
 
 	public Usuario getUsuario() {
