@@ -3,18 +3,17 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the lugar database table.
  * 
  */
 @Entity
-@NamedQuery(name="Lugar.findAll", query="SELECT l FROM Lugar l")
+@NamedQuery(name = "Lugar.findAll", query = "SELECT l FROM Lugar l")
 public class Lugar implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_lugar")
+	@Column(name = "id_lugar")
 	private int idLugar;
 
 	@Lob
@@ -23,22 +22,25 @@ public class Lugar implements Serializable {
 	@Lob
 	private byte[] imagen;
 
+	@Column(name = "nombre", nullable = false)
 	private String nombre;
 
+	@Column(name = "telefono", nullable = false)
 	private int telefono;
 
-	@Column(name="tipo_lugar")
+	@Column(name = "tipo_lugar")
 	private String tipoLugar;
 
+	@Column(name = "ubicacion", nullable = false)
 	private String ubicacion;
 
 	private int valoracion;
 
 	private String web;
 
-	//bi-directional many-to-one association to Usuario
+	// bi-directional many-to-one association to Usuario
 	@ManyToOne
-	@JoinColumn(name="email_responsable")
+	@JoinColumn(name = "email_responsable")
 	private Usuario usuario;
 
 	public Lugar() {
