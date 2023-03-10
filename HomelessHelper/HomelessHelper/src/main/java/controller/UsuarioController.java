@@ -30,18 +30,22 @@ public class UsuarioController {
 //		System.out.println(usuarioservice.retrieveUsuarios());
 //		return " 555";
 //	}
-	
+
 	@PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody Credenciales credenciales) {
-	    return usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
+		Usuario user = usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
+		user.setClave(null);
+		return user;
+
 	}
 
 	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario retrieveUsuario(@PathVariable("email") String email) {
 		return usuarioservice.retrieveUsuario(email);
+
 	}
 
-	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE) 
+	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String saveUsuario(@RequestBody Usuario usuario) {
 		return String.valueOf(usuarioservice.addUsuario(usuario));
 	}
@@ -50,10 +54,11 @@ public class UsuarioController {
 	public String updateUsuario(@RequestBody Usuario usuario) {
 		return String.valueOf(usuarioservice.updateUsuario(usuario));
 	}
-	
+
 	@PutMapping(value = "changeUserPwd", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String updatePassword(@RequestBody Credenciales credenciales) {
-		return String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),credenciales.getNew_clave()));
+		return String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),
+				credenciales.getNew_clave()));
 	}
 
 	@DeleteMapping(value = "user/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
