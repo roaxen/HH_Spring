@@ -100,6 +100,7 @@ public class Usuario implements Serializable {
 		return lugar;
 	}
 
+
 	public Lugar removeLugar(Lugar lugar) {
 		getLugars().remove(lugar);
 		lugar.setUsuario(null);
