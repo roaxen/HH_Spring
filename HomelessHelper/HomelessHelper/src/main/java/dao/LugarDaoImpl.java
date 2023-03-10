@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import model.Lugar;
 
-@Repository 
+@Repository
 public class LugarDaoImpl implements LugarDao {
 	@Autowired
 	LugarJpaSpring lugarDao;
@@ -50,5 +50,4 @@ public class LugarDaoImpl implements LugarDao {
 		lugarDao.save(lugar);
 
 	}
-
 }

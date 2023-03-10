@@ -1,16 +1,16 @@
-package model;
+package service;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
+
 
 /**
  * The persistent class for the usuario database table.
  * 
  */
 @Entity
-@NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,21 +24,15 @@ public class Usuario implements Serializable {
 	private String clave;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_nac")
+	@Column(name="fecha_nac")
 	private Date fechaNac;
 
 	private String nombre;
 
-	// bi-directional many-to-one association to Lugar
-	@OneToMany(mappedBy = "usuario")
-	private List<Lugar> lugars;
-
 	public Usuario() {
 	}
-
-	public Usuario(String email) {
-		this.email = email;
-	}
+	
+	
 
 	public String getEmail() {
 		return this.email;
@@ -88,25 +82,4 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<Lugar> getLugars() {
-		return this.lugars;
-	}
-
-	public void setLugars(List<Lugar> lugars) {
-		this.lugars = lugars;
-	}
-
-	public Lugar addLugar(Lugar lugar) {
-		getLugars().add(lugar);
-		lugar.setUsuario(this);
-
-		return lugar;
-	}
-
-	public Lugar removeLugar(Lugar lugar) {
-		getLugars().remove(lugar);
-		lugar.setUsuario(null);
-
-		return lugar;
-	}
 }
