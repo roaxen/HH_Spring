@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-//manu puto calv
 
 /**
  * The persistent class for the lugar database table.
@@ -117,12 +116,13 @@ public class Lugar implements Serializable {
 		this.web = web;
 	}
 
-	public Usuario getUsuario() {
-		return this.usuario;
+	public String getUsuario() {
+		return this.usuario.getEmail();
 	}
 
 	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+		Usuario user = new Usuario(usuario.getEmail());
+		this.usuario = user;
 	}
 
 }

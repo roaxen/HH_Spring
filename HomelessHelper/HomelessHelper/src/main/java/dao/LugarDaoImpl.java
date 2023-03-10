@@ -6,24 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.Lugar;
-@Repository   // porque esto tiene este tag 
+
+@Repository 
 public class LugarDaoImpl implements LugarDao {
-	@Autowired  // porque esto tiene este tag 
+	@Autowired
 	LugarJpaSpring lugarDao;
 
 	@Override
 	public void addLugar(Lugar lugar) {
 		// TODO Auto-generated method stub
-		//lugarDao.save(lugar);
-		System.out.print("add user no va");
-
+		lugarDao.save(lugar);
 	}
 
 	@Override
 	public void removeLugar(Lugar lugar) {
 		// TODO Auto-generated method stub
 		lugarDao.delete(lugar);
-		
+
 	}
 
 	@Override
@@ -51,5 +50,5 @@ public class LugarDaoImpl implements LugarDao {
 		lugarDao.save(lugar);
 
 	}
-	
+
 }
