@@ -25,11 +25,6 @@ public class UsuarioController {
 	public List<Usuario> retrieveUsuarios() {
 		return usuarioservice.retrieveUsuarios();
 	}
-//	@GetMapping(value = "profiles", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public String retrieveUsuarios() {
-//		System.out.println(usuarioservice.retrieveUsuarios());
-//		return " 555";
-//	}
 
 	@PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody Credenciales credenciales) {
