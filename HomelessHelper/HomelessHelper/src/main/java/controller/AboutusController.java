@@ -20,7 +20,7 @@ public class AboutusController {
 	@Autowired
 	AboutusService aboutusservice;
 
-	@GetMapping(value = "aboutus", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "aboutuses", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Aboutus> retrieveAboutuss() {
 		return aboutusservice.retrieveAboutus();
 	}
@@ -30,12 +30,12 @@ public class AboutusController {
 		return aboutusservice.retrieveAboutus(id);
 	}
 
-	@PostMapping(value = "aboutus", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "newAboutus", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String saveAboutus(@RequestBody Aboutus aboutus) {
 		return String.valueOf(aboutusservice.addAboutus(aboutus));
 	}
 
-	@PutMapping(value = "aboutus", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "changeAboutus", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String updateAboutus(@RequestBody Aboutus aboutus) {
 		return String.valueOf(aboutusservice.updateAboutus(aboutus));
 	}

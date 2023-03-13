@@ -21,27 +21,27 @@ public class HablanController {
 	@Autowired
 	HablanService hablanservice;
 
-	@GetMapping(value = "hablan", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "chats", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Hablan> retrieveHablans() {
 		return hablanservice.retrieveHablan();
 	}
 
-	@GetMapping(value = "hablan/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "chat/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Hablan retrieveHablan(@PathVariable("email") HablanPK hablanpk) {
 		return hablanservice.retrieveHablan(hablanpk);
 	}
 
-	@PostMapping(value = "hablan", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "newChat", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String saveHablan(@RequestBody Hablan hablan) {
 		return String.valueOf(hablanservice.addHablan(hablan));
 	}
 
-	@PutMapping(value = "hablan", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "actualizarChat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String updateHablan(@RequestBody Hablan hablan) {
 		return String.valueOf(hablanservice.updateHablan(hablan));
 	}
 
-	@DeleteMapping(value = "hablan/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "chat/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String deleteHablan(@PathVariable("email") HablanPK hablanpk) {
 		return String.valueOf(hablanservice.deleteHablan(hablanpk));
 	}

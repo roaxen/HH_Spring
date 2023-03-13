@@ -19,7 +19,7 @@ public class LugarController {
 	@Autowired
 	LugarService lugarService;
 	
-	@GetMapping(value = "lugar", produces =MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "lugares", produces =MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> retrieveLugar(){
 		return lugarService.retrieveLugar();
 	}
@@ -28,18 +28,15 @@ public class LugarController {
 	public Lugar retrieveLugar(@PathVariable("id") int id){
 		return lugarService.retrieveLugar(id);
 	}
-	//INSERTA
-	@PostMapping(value="lugar", produces=MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value="addLugar", produces=MediaType.TEXT_PLAIN_VALUE)
 	public String saveLugar(@RequestBody Lugar lugar){
 		return String.valueOf(lugarService.addLugar(lugar));
 	}
-	//UPDATE
 	@PutMapping(value="lugar", produces=MediaType.APPLICATION_JSON_VALUE)
 	public String updateLugar(@RequestBody Lugar lugar){
 		return String.valueOf(lugarService.updateLugar(lugar));
 	}
-	
-	@DeleteMapping(value="lugar/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value="eliminarLugar/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public String deleteLugar(@PathVariable("id") int idLugar){
 		return String.valueOf(lugarService.deleteLugar(idLugar));
 	}	
