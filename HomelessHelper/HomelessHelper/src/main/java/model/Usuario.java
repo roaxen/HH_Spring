@@ -17,16 +17,20 @@ public class Usuario implements Serializable {
 	@Id
 	private String email;
 
+	@Column(name = "apellidos", nullable = false)
 	private String apellidos;
 
+	@Column(name = "ciudad", nullable = false)
 	private String ciudad;
 
+	@Column(name = "clave", nullable = false)
 	private String clave;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha_nac")
 	private Date fechaNac;
 
+	@Column(name = "nombre", nullable = false)
 	private String nombre;
 
 	// bi-directional many-to-one association to Lugar
