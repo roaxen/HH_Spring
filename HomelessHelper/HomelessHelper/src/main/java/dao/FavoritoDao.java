@@ -5,20 +5,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import model.Favorito;
-import model.FavoritoPK;
 
 @Service
 public interface FavoritoDao {
-	
-	void addFavorito(Favorito favorito);
-
-	void removeFavorito(Favorito favorito);
 
 	List<Favorito> getFavoritos();
 
-	void removeFavorito(FavoritoPK favoritoPK);
+	Favorito getFavorito(Favorito favorito);
 
-	Favorito retrieveFavorito(FavoritoPK favoritoPK);
+	Favorito addFavorito(Favorito favorito);
 
-	void updateFavorito(Favorito favorito);
+	Boolean deleteFavorito(Favorito favorito);
+	
 }

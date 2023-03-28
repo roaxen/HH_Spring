@@ -5,43 +5,49 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+
 /**
  * The persistent class for the usuario database table.
  * 
  */
 @Entity
-@NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String email;
 
-	@Column(name = "apellidos", nullable = false)
 	private String apellidos;
 
-	@Column(name = "ciudad", nullable = false)
 	private String ciudad;
 
-	@Column(name = "clave", nullable = false)
 	private String clave;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_nac")
+	@Column(name="fecha_nac")
 	private Date fechaNac;
 
-	@Column(name = "nombre", nullable = false)
 	private String nombre;
 
-	// bi-directional many-to-one association to Lugar
-	@OneToMany(mappedBy = "usuario")
-	private List<Lugar> lugars;
+	//bi-directional many-to-many association to Lugar
+	@ManyToMany
+	@JoinTable(
+		name="favoritos"
+		, joinColumns={
+			@JoinColumn(name="email")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="id_lugar")
+			}
+		)
+	private List<Lugar> lugars1;
+
+	//bi-directional many-to-one association to Lugar
+	@OneToMany(mappedBy="usuario")
+	private List<Lugar> lugars2;
 
 	public Usuario() {
-	}
-
-	public Usuario(String email) {
-		this.email = email;
 	}
 
 	public String getEmail() {
@@ -92,25 +98,34 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<Lugar> getLugars() {
-		return this.lugars;
+	public List<Lugar> getLugars1() {
+		return this.lugars1;
 	}
 
-	public void setLugars(List<Lugar> lugars) {
-		this.lugars = lugars;
+	public void setLugars1(List<Lugar> lugars1) {
+		this.lugars1 = lugars1;
 	}
 
-	public Lugar addLugar(Lugar lugar) {
-		getLugars().add(lugar);
-		lugar.setUsuario(this);
-
-		return lugar;
+	public List<Lugar> getLugars2() {
+		return this.lugars2;
 	}
 
-	public Lugar removeLugar(Lugar lugar) {
-		getLugars().remove(lugar);
-		lugar.setUsuario(null);
-
-		return lugar;
+	public void setLugars2(List<Lugar> lugars2) {
+		this.lugars2 = lugars2;
 	}
+
+	public Lugar addLugars2(Lugar lugars2) {
+		getLugars2().add(lugars2);
+		lugars2.setUsuario(this);
+
+		return lugars2;
+	}
+
+	public Lugar removeLugars2(Lugar lugars2) {
+		getLugars2().remove(lugars2);
+		lugars2.setUsuario(null);
+
+		return lugars2;
+	}
+
 }

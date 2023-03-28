@@ -20,6 +20,7 @@ public class FavoritoPK implements Serializable {
 
 	public FavoritoPK() {
 	}
+	
 	public String getEmail() {
 		return this.email;
 	}

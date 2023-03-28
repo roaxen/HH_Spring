@@ -6,25 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.Favorito;
-import model.FavoritoPK;
 
 @Repository
-
 public class FavoritoDaoImpl implements FavoritoDao {
 	@Autowired
 	FavoritoJpaSpring favoritoDao;
-
-	@Override
-	public void addFavorito(Favorito favorito) {
-		// TODO Auto-generated method stub
-		favoritoDao.save(favorito);		
-	}
-
-	@Override
-	public void removeFavorito(Favorito favorito) {
-		// TODO Auto-generated method stub
-		favoritoDao.delete(favorito);
-	}
 
 	@Override
 	public List<Favorito> getFavoritos() {
@@ -33,22 +19,26 @@ public class FavoritoDaoImpl implements FavoritoDao {
 	}
 
 	@Override
-	public void removeFavorito(FavoritoPK favoritoPK) {
+	public Favorito getFavorito(Favorito favorito) {
 		// TODO Auto-generated method stub
-		favoritoDao.deleteById(favoritoPK.getEmail());
+		return favoritoDao.findByEmail(favorito.getId().getEmail());
 	}
 
 	@Override
-	public Favorito retrieveFavorito(FavoritoPK favoritoPK) {
+	public Favorito addFavorito(Favorito favorito) {
 		// TODO Auto-generated method stub
-		return favoritoDao.findById(favoritoPK.getEmail()).orElse(null);
+		return favoritoDao.save(favorito);
 	}
 
 	@Override
-	public void updateFavorito(Favorito favorito) {
+	public Boolean deleteFavorito(Favorito favorito) {
 		// TODO Auto-generated method stub
-		favoritoDao.save(favorito);
+		if (favoritoDao.findByEmail(favorito.getId().getEmail()) != null) {
+			favoritoDao.delete(favorito);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	
 }

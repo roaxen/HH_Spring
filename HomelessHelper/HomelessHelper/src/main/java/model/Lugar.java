@@ -2,45 +2,41 @@ package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import java.util.List;
+
 
 /**
  * The persistent class for the lugar database table.
  * 
  */
 @Entity
-@NamedQuery(name = "Lugar.findAll", query = "SELECT l FROM Lugar l")
+@NamedQuery(name="Lugar.findAll", query="SELECT l FROM Lugar l")
 public class Lugar implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id_lugar")
+	@Column(name="id_lugar")
 	private int idLugar;
 
 	@Lob
 	private String descripcion;
 
-	@Lob
-	private byte[] imagen;
-
-	@Column(name = "nombre", nullable = false)
-	private String nombre;
-
-	@Column(name = "telefono", nullable = false)
 	private int telefono;
 
-	@Column(name = "tipo_lugar")
+	@Column(name="tipo_lugar")
 	private String tipoLugar;
 
-	@Column(name = "ubicacion", nullable = false)
 	private String ubicacion;
 
 	private int valoracion;
 
-	private String web;
+	//bi-directional many-to-many association to Usuario
+	@ManyToMany(mappedBy="lugars1")
+	private List<Usuario> usuarios;
 
-	// bi-directional many-to-one association to Usuario
+	//bi-directional many-to-one association to Usuario
 	@ManyToOne
-	@JoinColumn(name = "email_responsable")
+	@JoinColumn(name="email_responsable")
 	private Usuario usuario;
 
 	public Lugar() {
@@ -60,22 +56,6 @@ public class Lugar implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public byte[] getImagen() {
-		return this.imagen;
-	}
-
-	public void setImagen(byte[] imagen) {
-		this.imagen = imagen;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public int getTelefono() {
@@ -110,21 +90,20 @@ public class Lugar implements Serializable {
 		this.valoracion = valoracion;
 	}
 
-	public String getWeb() {
-		return this.web;
+	public List<Usuario> getUsuarios() {
+		return this.usuarios;
 	}
 
-	public void setWeb(String web) {
-		this.web = web;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public String getUsuario() {
-		return this.usuario.getEmail();
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
-		Usuario user = new Usuario(usuario.getEmail());
-		this.usuario = user;
+		this.usuario = usuario;
 	}
 
 }
