@@ -19,9 +19,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean addUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		if (usuarioDao.retrieveUsuario(usuario.getEmail()) == null) {
-			
 			usuario.setClave(encrypt(usuario.getClave()));
-			
 			usuarioDao.addUsuario(usuario);
 			return true;
 		}
@@ -38,6 +36,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		if (usuarioDao.retrieveUsuario(usuario.getEmail()) != null) {
+			usuario.setClave(encrypt(usuario.getClave()));
 			usuarioDao.updateUsuario(usuario);
 			return true;
 		}
@@ -69,7 +68,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public boolean updatePassword(String email, String clave, String new_clave) {
 		// TODO Auto-generated method stub
-		
 		if (usuarioDao.checkameUsuario(email, encrypt(clave)).getEmail() != null) {
 			Usuario user = checkUserExists(email, clave);
 			user.setClave(encrypt(new_clave));
@@ -80,9 +78,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	public String encrypt(String clave) {
-		
+
 		String claveCriptica = DigestUtils.md5Hex(clave);
-		
+
 		return claveCriptica;
 	}
 }

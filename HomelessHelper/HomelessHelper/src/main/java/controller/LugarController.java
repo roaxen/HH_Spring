@@ -18,29 +18,40 @@ import java.util.List;
 public class LugarController {
 	@Autowired
 	LugarService lugarService;
-	
-	@GetMapping(value = "lugares", produces =MediaType.APPLICATION_JSON_VALUE)
-	public List<Lugar> retrieveLugar(){
+
+	@GetMapping(value = "lugares", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Lugar> retrieveLugar() {
 		return lugarService.retrieveLugar();
 	}
-	
-	@GetMapping(value="lugar/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Lugar retrieveLugar(@PathVariable("id") int id){
+
+	@GetMapping(value = "lugar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Lugar retrieveLugar(@PathVariable("id") int id) {
 		return lugarService.retrieveLugar(id);
 	}
-	@PostMapping(value="addLugar", produces=MediaType.TEXT_PLAIN_VALUE)
-	public String saveLugar(@RequestBody Lugar lugar){
-		return String.valueOf(lugarService.addLugar(lugar));
+
+	@PostMapping(value = "addLugar", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Lugar saveLugar(@RequestBody Lugar lugar) {
+		if (String.valueOf(lugarService.addLugar(lugar)) != null) {
+			return lugar;
+		} else {
+			Lugar nullLugar = new Lugar();
+			return nullLugar;
+		}
 	}
-	@PutMapping(value="lugar", produces=MediaType.APPLICATION_JSON_VALUE)
-	public String updateLugar(@RequestBody Lugar lugar){
-		return String.valueOf(lugarService.updateLugar(lugar));
+
+	@PutMapping(value = "lugar", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Lugar updateLugar(@RequestBody Lugar lugar) {
+		if (String.valueOf(lugarService.updateLugar(lugar)) != null) {
+			return lugar;
+		} else {
+			Lugar nullLugar = new Lugar();
+			return nullLugar;
+		}
 	}
-	@DeleteMapping(value="eliminarLugar/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public String deleteLugar(@PathVariable("id") int idLugar){
+
+	@DeleteMapping(value = "eliminarLugar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String deleteLugar(@PathVariable("id") int idLugar) {
 		return String.valueOf(lugarService.deleteLugar(idLugar));
-	}	
-	
-	
+	}
 
 }

@@ -32,7 +32,7 @@ public class LugarServiceImpl implements LugarService{
 	public boolean updateLugar(Lugar lugar) {
 		if(lugarDao.retrieveLugar(lugar.getIdLugar())!= null)
 		{
-			lugarDao.removeLugar(lugar);
+			lugarDao.addLugar(lugar);
 			return true;
 		}
 		return false;	

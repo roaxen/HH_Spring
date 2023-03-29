@@ -17,6 +17,12 @@ public class Usuario implements Serializable {
 	@Id
 	private String email;
 
+	@Override
+	public String toString() {
+		return "Usuario [email=" + email + ", apellidos=" + apellidos + ", ciudad=" + ciudad + ", clave=" + clave
+				+ ", fechaNac=" + fechaNac + ", nombre=" + nombre + "]";
+	}
+
 	private String apellidos;
 
 	private String ciudad;
@@ -30,9 +36,7 @@ public class Usuario implements Serializable {
 	private String nombre;
 
 	public Usuario() {
-	}
-	
-	
+	}	
 
 	public String getEmail() {
 		return this.email;

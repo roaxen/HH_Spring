@@ -30,14 +30,24 @@ public class AboutusController {
 		return aboutusservice.retrieveAboutus(id);
 	}
 
-	@PostMapping(value = "newAboutus", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String saveAboutus(@RequestBody Aboutus aboutus) {
-		return String.valueOf(aboutusservice.addAboutus(aboutus));
+	@PostMapping(value = "newAboutus", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Aboutus saveAboutus(@RequestBody Aboutus aboutus) {
+		if (String.valueOf(aboutusservice.addAboutus(aboutus)) != null) {
+			return aboutus;
+		} else {
+			Aboutus nullAboutus = new Aboutus();
+			return nullAboutus;
+		}
 	}
 
 	@PutMapping(value = "changeAboutus", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updateAboutus(@RequestBody Aboutus aboutus) {
-		return String.valueOf(aboutusservice.updateAboutus(aboutus));
+	public Aboutus updateAboutus(@RequestBody Aboutus aboutus) {
+		if (String.valueOf(aboutusservice.updateAboutus(aboutus)) != null) {
+			return aboutus;
+		} else {
+			Aboutus nullAboutus = new Aboutus();
+			return nullAboutus;
+		}
 	}
 
 	@DeleteMapping(value = "aboutus/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

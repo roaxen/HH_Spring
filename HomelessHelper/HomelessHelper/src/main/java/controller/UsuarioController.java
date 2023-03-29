@@ -31,7 +31,6 @@ public class UsuarioController {
 		Usuario user = usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
 		user.setClave(null);
 		return user;
-
 	}
 
 	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -40,20 +39,39 @@ public class UsuarioController {
 
 	}
 
-	@PostMapping(value = "signin", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String saveUsuario(@RequestBody Usuario usuario) {
-		return String.valueOf(usuarioservice.addUsuario(usuario));
+	@PostMapping(value = "signin", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Usuario saveUsuario(@RequestBody Usuario usuario) {
+		if (usuarioservice.addUsuario(usuario)) {
+			usuario.setClave(null);
+			return usuario;
+		} else {
+			Usuario nullUser = new Usuario();
+			return nullUser;
+		}
 	}
 
 	@PutMapping(value = "profile", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updateUsuario(@RequestBody Usuario usuario) {
-		return String.valueOf(usuarioservice.updateUsuario(usuario));
+	public Usuario updateUsuario(@RequestBody Usuario usuario) {
+		if (String.valueOf(usuarioservice.updateUsuario(usuario)) != null) {
+			usuario.setClave(null);
+			return usuario;
+		} else {
+			Usuario nullUser = new Usuario();
+			return nullUser;
+		}
 	}
 
 	@PutMapping(value = "changeUserPwd", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updatePassword(@RequestBody Credenciales credenciales) {
-		return String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),
-				credenciales.getNew_clave()));
+	public Usuario updatePassword(@RequestBody Credenciales credenciales) {
+		if (String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),
+				credenciales.getNew_clave())) != null) {
+			Usuario user = retrieveUsuario(credenciales.getEmail());
+			user.setClave(null);
+			return user;
+		} else {
+			Usuario nullUser = new Usuario();
+			return nullUser;
+		}
 	}
 
 	@DeleteMapping(value = "user/{email}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,6 +20,9 @@ public class Lugar implements Serializable {
 	@Lob
 	private String descripcion;
 
+	@Column(name="email_responsable")
+	private String emailResponsable;
+
 	private int telefono;
 
 	@Column(name="tipo_lugar")
@@ -29,15 +31,6 @@ public class Lugar implements Serializable {
 	private String ubicacion;
 
 	private int valoracion;
-
-	//bi-directional many-to-many association to Usuario
-	@ManyToMany(mappedBy="lugars1")
-	private List<Usuario> usuarios;
-
-	//bi-directional many-to-one association to Usuario
-	@ManyToOne
-	@JoinColumn(name="email_responsable")
-	private Usuario usuario;
 
 	public Lugar() {
 	}
@@ -56,6 +49,14 @@ public class Lugar implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getEmailResponsable() {
+		return this.emailResponsable;
+	}
+
+	public void setEmailResponsable(String emailResponsable) {
+		this.emailResponsable = emailResponsable;
 	}
 
 	public int getTelefono() {
@@ -88,22 +89,6 @@ public class Lugar implements Serializable {
 
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return this.usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 }
