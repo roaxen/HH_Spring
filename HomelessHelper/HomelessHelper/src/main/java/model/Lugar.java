@@ -15,22 +15,24 @@ public class Lugar implements Serializable {
 
 	@Id
 	@Column(name="id_lugar")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idLugar;
 
-	@Lob
-	private String descripcion;
+	private Object descripcion;
 
 	@Column(name="email_responsable")
 	private String emailResponsable;
 
 	private int telefono;
 
-	@Column(name="tipo_lugar")
-	private String tipoLugar;
-
 	private String ubicacion;
 
 	private int valoracion;
+
+	//bi-directional many-to-one association to Tipolugar
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id_tipolugar")
+	private Tipolugar tipolugar;
 
 	public Lugar() {
 	}
@@ -43,11 +45,11 @@ public class Lugar implements Serializable {
 		this.idLugar = idLugar;
 	}
 
-	public String getDescripcion() {
+	public Object getDescripcion() {
 		return this.descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
+	public void setDescripcion(Object descripcion) {
 		this.descripcion = descripcion;
 	}
 
@@ -67,14 +69,6 @@ public class Lugar implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public String getTipoLugar() {
-		return this.tipoLugar;
-	}
-
-	public void setTipoLugar(String tipoLugar) {
-		this.tipoLugar = tipoLugar;
-	}
-
 	public String getUbicacion() {
 		return this.ubicacion;
 	}
@@ -89,6 +83,14 @@ public class Lugar implements Serializable {
 
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
+	}
+
+	public int getTipolugar() {
+		return this.tipolugar.getIdTipolugar();
+	}
+
+	public void setTipolugar(Tipolugar tipolugar) {
+		this.tipolugar = tipolugar;
 	}
 
 }

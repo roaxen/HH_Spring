@@ -11,13 +11,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import service.LugarService;
+import service.TipolugarService;
 import model.Lugar;
+
 import java.util.List;
 
 @RestController
 public class LugarController {
 	@Autowired
 	LugarService lugarService;
+
+	@Autowired
+	TipolugarService tipolugarService;
 
 	@GetMapping(value = "lugares", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> retrieveLugar() {
@@ -31,7 +36,8 @@ public class LugarController {
 
 	@PostMapping(value = "addLugar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Lugar saveLugar(@RequestBody Lugar lugar) {
-		if (String.valueOf(lugarService.addLugar(lugar)) != null) {
+		
+		if (lugarService.addLugar(lugar)) {
 			return lugar;
 		} else {
 			Lugar nullLugar = new Lugar();
@@ -39,9 +45,10 @@ public class LugarController {
 		}
 	}
 
-	@PutMapping(value = "lugar", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "updateLugar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Lugar updateLugar(@RequestBody Lugar lugar) {
-		if (String.valueOf(lugarService.updateLugar(lugar)) != null) {
+
+		if (lugarService.updateLugar(lugar)) {
 			return lugar;
 		} else {
 			Lugar nullLugar = new Lugar();
@@ -50,8 +57,8 @@ public class LugarController {
 	}
 
 	@DeleteMapping(value = "eliminarLugar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String deleteLugar(@PathVariable("id") int idLugar) {
-		return String.valueOf(lugarService.deleteLugar(idLugar));
+	public Boolean deleteLugar(@PathVariable("id") int idLugar) {
+		return lugarService.deleteLugar(idLugar);
 	}
 
 }

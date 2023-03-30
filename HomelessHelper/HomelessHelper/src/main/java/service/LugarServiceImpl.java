@@ -10,10 +10,12 @@ import model.Lugar;
 
 @Service
 public class LugarServiceImpl implements LugarService{
+	
 	@Autowired
 	LugarDao lugarDao;
+	
 	@Override
-	public boolean addLugar(Lugar lugar) { // porque devuelven true o false ? en  donde uso estos boleans 
+	public boolean addLugar(Lugar lugar) {
 
 		if(lugarDao.retrieveLugar(lugar.getIdLugar()) == null) {
 			lugarDao.addLugar(lugar);

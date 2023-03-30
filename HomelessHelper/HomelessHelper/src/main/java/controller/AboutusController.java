@@ -40,7 +40,7 @@ public class AboutusController {
 		}
 	}
 
-	@PutMapping(value = "changeAboutus", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "updateAboutus", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Aboutus updateAboutus(@RequestBody Aboutus aboutus) {
 		if (String.valueOf(aboutusservice.updateAboutus(aboutus)) != null) {
 			return aboutus;
