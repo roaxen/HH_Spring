@@ -2,19 +2,22 @@ package service;
 
 import java.util.List;
 
-import model.Favorito;
 import model.Lugar;
 import org.springframework.stereotype.Service;
 
-  @Service
+@Service
 public interface LugarService {
-	
 
-		boolean addLugar(Lugar lugar);
-		List<Lugar> retrieveLugar();
-		boolean updateLugar(Lugar lugar);
-		boolean deleteLugar(int idLugar);
-		Lugar retrieveLugar(int idLugar);
-//		List<Lugar> retrieveLugarFav(Favorito favorito);
-	
+	boolean addLugar(Lugar lugar);
+
+	List<Lugar> retrieveLugar();
+
+	boolean updateLugar(Lugar lugar);
+
+	boolean deleteLugar(int idLugar);
+
+	Lugar retrieveLugar(int idLugar);
+
+	List<Lugar> getLugaresPorTipo(int idTipoLugar);
+
 }

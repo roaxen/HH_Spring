@@ -56,6 +56,12 @@ public class LugarServiceImpl implements LugarService{
 		return lugarDao.retrieveLugar(idLugar);
 	}
 
+	@Override
+	public List<Lugar> getLugaresPorTipo(int idTipoLugar) {
+		// TODO Auto-generated method stub
+		return lugarDao.getLugaresPorTipo(idTipoLugar);
+	}
+
 //	@Override
 //	public List<Lugar> retrieveLugarFav(Favorito favorito) {
 //		// TODO Auto-generated method stub

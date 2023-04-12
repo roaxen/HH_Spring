@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,9 +14,14 @@ public class TipolugarDaoImpl implements TipolugarDao{
 	TipolugarJpaSpring tipolugarJpaSpring;
 	
 	@Override
-	public Tipolugar getTipoLugar(String descripcion) {
+	public Tipolugar getTipoLugar(int idTipoLugar) {
 		// TODO Auto-generated method stub
-		return tipolugarJpaSpring.selectTipoLugar(descripcion);
+		return tipolugarJpaSpring.findById(idTipoLugar).orElse(null);
 	}
 
+	@Override
+	public List<Tipolugar> retrieveTipolugar() {
+		// TODO Auto-generated method stub
+		return tipolugarJpaSpring.findAll();
+	}
 }

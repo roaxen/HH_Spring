@@ -20,6 +20,11 @@ public class Tipolugar implements Serializable {
 
 	private String descripcion;
 
+	@Override
+	public String toString() {
+		return "Tipolugar [idTipolugar=" + idTipolugar + ", descripcion=" + descripcion + "]";
+	}
+
 	public Tipolugar() {
 	}
 

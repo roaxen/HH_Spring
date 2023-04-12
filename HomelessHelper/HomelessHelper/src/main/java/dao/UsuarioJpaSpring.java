@@ -16,4 +16,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario,String>{
 	
 	@Query("SELECT u FROM Usuario u WHERE u.email = ?1 and u.clave =?2")
 	Usuario checkUserExists(String email, String clave);
+	
+	
+	
 	}

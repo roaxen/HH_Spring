@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import service.LugarService;
-import service.TipolugarService;
 import model.Lugar;
+import model.Tipolugar;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -21,12 +22,12 @@ public class LugarController {
 	@Autowired
 	LugarService lugarService;
 
-	@Autowired
-	TipolugarService tipolugarService;
-
 	@GetMapping(value = "lugares", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> retrieveLugar() {
-		return lugarService.retrieveLugar();
+
+		List<Lugar> lugares = lugarService.retrieveLugar();
+		Collections.reverse(lugares);
+		return lugares;
 	}
 
 	@GetMapping(value = "lugar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,7 +37,7 @@ public class LugarController {
 
 	@PostMapping(value = "addLugar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Lugar saveLugar(@RequestBody Lugar lugar) {
-		
+
 		if (lugarService.addLugar(lugar)) {
 			return lugar;
 		} else {
@@ -59,6 +60,14 @@ public class LugarController {
 	@DeleteMapping(value = "eliminarLugar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Boolean deleteLugar(@PathVariable("id") int idLugar) {
 		return lugarService.deleteLugar(idLugar);
+	}
+
+	@GetMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Lugar> getLugaresPorTipo(@RequestBody Tipolugar idTipoLugar) {
+
+		List<Lugar> lugares = lugarService.getLugaresPorTipo(idTipoLugar.getIdTipolugar());
+		Collections.reverse(lugares);
+		return lugares;
 	}
 
 }

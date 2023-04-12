@@ -51,6 +51,12 @@ public class LugarDaoImpl implements LugarDao {
 
 	}
 
+	@Override
+	public List<Lugar> getLugaresPorTipo(int idTipoLugar) {
+		// TODO Auto-generated method stub
+		return lugarDao.findLugaresByTipoLugar(idTipoLugar);
+	}
+
 //	@Override
 //	public List<Lugar> getLugaresFav(Favorito favorito) {
 //		// TODO Auto-generated method stub

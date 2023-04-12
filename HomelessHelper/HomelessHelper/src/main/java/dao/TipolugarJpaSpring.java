@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import model.Tipolugar;
 
-public interface TipolugarJpaSpring extends JpaRepository<Tipolugar, String>{
+public interface TipolugarJpaSpring extends JpaRepository<Tipolugar, Integer> {
 
-	@Query("SELECT t FROM Tipolugar t WHERE t.descripcion = ?1")
-	Tipolugar selectTipoLugar(String descripcion);
+	@Query("SELECT t FROM Tipolugar t WHERE t.idTipolugar = ?1")
+	Tipolugar findByIdTipoLugar(int idTipoLugar);
 }
