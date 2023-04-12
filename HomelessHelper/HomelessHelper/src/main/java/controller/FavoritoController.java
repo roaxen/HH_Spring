@@ -11,26 +11,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import service.FavoritoService;
+import service.LugarService;
 import model.Favorito;
+import model.FavoritoPK;
+import model.Lugar;
 
 @RestController
 public class FavoritoController {
+
 	@Autowired
 	FavoritoService favoritoservice;
+
+	@Autowired
+	LugarService lugarservice;
 
 	@GetMapping(value = "favoritos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Favorito> retrieveFavoritos() {
 		return favoritoservice.retrieveFavoritos();
 	}
 
-	@GetMapping(value = "favorito", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Favorito retrieveFavorito(@RequestBody Favorito favorito) {
-		return favoritoservice.retrieveFavorito(favorito);
-	}
-
 	@PostMapping(value = "newFavorito", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String saveFavorito(@RequestBody Favorito favorito) {
-		return String.valueOf(favoritoservice.addFavorito(favorito));
+	public Favorito saveFavorito(@RequestBody Favorito favorito) {
+		if (favoritoservice.addFavorito(favorito)) {
+			return favorito;
+		} else {
+			Favorito favNull = new Favorito();
+			return favNull;
+		}
 	}
 
 	@DeleteMapping(value = "deleteFavorito", produces = MediaType.APPLICATION_JSON_VALUE)

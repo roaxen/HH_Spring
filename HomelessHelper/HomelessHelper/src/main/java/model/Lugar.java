@@ -15,24 +15,28 @@ public class Lugar implements Serializable {
 
 	@Id
 	@Column(name="id_lugar")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idLugar;
 
-	private Object descripcion;
+	@Lob
+	private String descripcion;
+
+	private String direccion;
+
+	private String email;
 
 	@Column(name="email_responsable")
 	private String emailResponsable;
+
+	@Column(name="id_tipolugar")
+	private int idTipolugar;
+
+	private String nombre;
 
 	private int telefono;
 
 	private String ubicacion;
 
 	private int valoracion;
-
-	//bi-directional many-to-one association to Tipolugar
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name="id_tipolugar")
-	private Tipolugar tipolugar;
 
 	public Lugar() {
 	}
@@ -45,12 +49,28 @@ public class Lugar implements Serializable {
 		this.idLugar = idLugar;
 	}
 
-	public Object getDescripcion() {
+	public String getDescripcion() {
 		return this.descripcion;
 	}
 
-	public void setDescripcion(Object descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getEmailResponsable() {
@@ -59,6 +79,22 @@ public class Lugar implements Serializable {
 
 	public void setEmailResponsable(String emailResponsable) {
 		this.emailResponsable = emailResponsable;
+	}
+
+	public int getIdTipolugar() {
+		return this.idTipolugar;
+	}
+
+	public void setIdTipolugar(int idTipolugar) {
+		this.idTipolugar = idTipolugar;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public int getTelefono() {
@@ -83,14 +119,6 @@ public class Lugar implements Serializable {
 
 	public void setValoracion(int valoracion) {
 		this.valoracion = valoracion;
-	}
-
-	public int getTipolugar() {
-		return this.tipolugar.getIdTipolugar();
-	}
-
-	public void setTipolugar(Tipolugar tipolugar) {
-		this.tipolugar = tipolugar;
 	}
 
 }

@@ -1,6 +1,8 @@
 package service;
 
 import java.util.List;
+
+import model.Favorito;
 import model.Lugar;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,6 @@ public interface LugarService {
 		boolean updateLugar(Lugar lugar);
 		boolean deleteLugar(int idLugar);
 		Lugar retrieveLugar(int idLugar);
+//		List<Lugar> retrieveLugarFav(Favorito favorito);
 	
 }

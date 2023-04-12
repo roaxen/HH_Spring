@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.LugarDao;
+import model.Favorito;
 import model.Lugar;
 
 @Service
@@ -54,6 +55,12 @@ public class LugarServiceImpl implements LugarService{
 		
 		return lugarDao.retrieveLugar(idLugar);
 	}
+
+//	@Override
+//	public List<Lugar> retrieveLugarFav(Favorito favorito) {
+//		// TODO Auto-generated method stub
+//		return lugarDao.getLugaresFav(favorito);
+//	}
 	
 
 }

@@ -27,9 +27,13 @@ public class FavoritoServiceImpl implements FavoritoService {
 	}
 
 	@Override
-	public Favorito addFavorito(Favorito favorito) {
+	public Boolean addFavorito(Favorito favorito) {
 		// TODO Auto-generated method stub
-		return favoritoDao.addFavorito(favorito);
+		if (favoritoDao.addFavorito(favorito)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override

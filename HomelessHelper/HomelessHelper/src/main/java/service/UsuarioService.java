@@ -8,6 +8,7 @@ import model.Usuario;
 
 @Service
 public interface UsuarioService {
+	
 	boolean addUsuario(Usuario Usuario);
 
 	List<Usuario> retrieveUsuarios();
@@ -23,3 +24,7 @@ public interface UsuarioService {
 	Usuario checkUserExists(String email, String clave);
 
 }
+
+
+
+

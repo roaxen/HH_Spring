@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.Favorito;
 import model.Lugar;
 
 @Repository
@@ -22,7 +23,6 @@ public class LugarDaoImpl implements LugarDao {
 	public void removeLugar(Lugar lugar) {
 		// TODO Auto-generated method stub
 		lugarDao.delete(lugar);
-
 	}
 
 	@Override
@@ -50,4 +50,10 @@ public class LugarDaoImpl implements LugarDao {
 		lugarDao.save(lugar);
 
 	}
+
+//	@Override
+//	public List<Lugar> getLugaresFav(Favorito favorito) {
+//		// TODO Auto-generated method stub
+//		return lugarDao.findAllByFav(favorito.getId().getIdLugar());
+//	}
 }

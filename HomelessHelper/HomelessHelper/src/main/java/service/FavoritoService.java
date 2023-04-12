@@ -13,7 +13,7 @@ public interface FavoritoService {
 
 	Favorito retrieveFavorito(Favorito favorito);
 
-	Favorito addFavorito(Favorito favorito);
+	Boolean addFavorito(Favorito favorito);
 
 	Boolean deleteFavorito(Favorito favorito);
 

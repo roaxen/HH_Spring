@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import model.Favorito;
 import model.Lugar;
 @Service
 public interface LugarDao {
@@ -18,4 +19,6 @@ public interface LugarDao {
 		Lugar retrieveLugar(int idLugar);
 		
 		void updateLugar(Lugar lugar);
+
+//		List<Lugar> getLugaresFav(Favorito favorito);
 }

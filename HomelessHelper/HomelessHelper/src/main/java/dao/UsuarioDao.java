@@ -8,6 +8,7 @@ import model.Usuario;
 
 @Service
 public interface UsuarioDao {
+
 	void addUsuario(Usuario Usuario);
 
 	void removeUsuario(String email);

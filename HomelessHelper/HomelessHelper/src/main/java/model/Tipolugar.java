@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.util.List;
 
 
 /**
@@ -16,13 +15,10 @@ public class Tipolugar implements Serializable {
 
 	@Id
 	@Column(name="id_tipolugar")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTipolugar;
 
 	private String descripcion;
-
-	//bi-directional many-to-one association to Lugar
-	@OneToMany(mappedBy="tipolugar")
-	private List<Lugar> lugars;
 
 	public Tipolugar() {
 	}
@@ -42,4 +38,5 @@ public class Tipolugar implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 }

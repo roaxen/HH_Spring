@@ -25,9 +25,13 @@ public class FavoritoDaoImpl implements FavoritoDao {
 	}
 
 	@Override
-	public Favorito addFavorito(Favorito favorito) {
+	public Boolean addFavorito(Favorito favorito) {
 		// TODO Auto-generated method stub
-		return favoritoDao.save(favorito);
+		if (favoritoDao.save(favorito) != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -40,5 +44,4 @@ public class FavoritoDaoImpl implements FavoritoDao {
 			return false;
 		}
 	}
-
 }

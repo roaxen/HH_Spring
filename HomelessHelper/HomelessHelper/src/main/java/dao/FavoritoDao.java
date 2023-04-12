@@ -13,7 +13,7 @@ public interface FavoritoDao {
 
 	Favorito getFavorito(Favorito favorito);
 
-	Favorito addFavorito(Favorito favorito);
+	Boolean addFavorito(Favorito favorito);
 
 	Boolean deleteFavorito(Favorito favorito);
 	
