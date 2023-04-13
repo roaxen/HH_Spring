@@ -1,11 +1,11 @@
 package model;
 
 public class Credenciales {
-	
+
 	String clave;
 	String email;
 	String new_clave;
-	
+
 	public Credenciales(String clave, String email, String new_clave) {
 		super();
 		this.clave = clave;

@@ -3,19 +3,18 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the tipolugar database table.
  * 
  */
 @Entity
-@NamedQuery(name="Tipolugar.findAll", query="SELECT t FROM Tipolugar t")
+@NamedQuery(name = "Tipolugar.findAll", query = "SELECT t FROM Tipolugar t")
 public class Tipolugar implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_tipolugar")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_tipolugar")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTipolugar;
 
 	private String descripcion;

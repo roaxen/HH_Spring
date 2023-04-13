@@ -9,7 +9,7 @@ import model.HablanPK;
 
 @Service
 public interface HablanDao {
-	
+
 	void addHablan(Hablan hablan);
 
 	void removeHablan(Hablan hablan);

@@ -16,5 +16,5 @@ public interface FavoritoDao {
 	Boolean addFavorito(Favorito favorito);
 
 	Boolean deleteFavorito(Favorito favorito);
-	
+
 }

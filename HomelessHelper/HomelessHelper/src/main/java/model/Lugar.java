@@ -3,18 +3,17 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the lugar database table.
  * 
  */
 @Entity
-@NamedQuery(name="Lugar.findAll", query="SELECT l FROM Lugar l")
+@NamedQuery(name = "Lugar.findAll", query = "SELECT l FROM Lugar l")
 public class Lugar implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="id_lugar")
+	@Column(name = "id_lugar")
 	private int idLugar;
 
 	@Lob
@@ -24,10 +23,10 @@ public class Lugar implements Serializable {
 
 	private String email;
 
-	@Column(name="email_responsable")
+	@Column(name = "email_responsable")
 	private String emailResponsable;
 
-	@Column(name="id_tipolugar")
+	@Column(name = "id_tipolugar")
 	private int idTipolugar;
 
 	@Override

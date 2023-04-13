@@ -3,14 +3,13 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the favoritos database table.
  * 
  */
 @Entity
-@Table(name="favoritos")
-@NamedQuery(name="Favorito.findAll", query="SELECT f FROM Favorito f")
+@Table(name = "favoritos")
+@NamedQuery(name = "Favorito.findAll", query = "SELECT f FROM Favorito f")
 public class Favorito implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import model.Lugar;
 
-
 @Service
 public interface LugarJpaSpring extends JpaRepository<Lugar, Integer> {
 	@Transactional

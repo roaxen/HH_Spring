@@ -8,7 +8,6 @@ import model.FavoritoPK;
 
 public interface FavoritoJpaSpring extends JpaRepository<Favorito, FavoritoPK> {
 
-	
 	@Query("SELECT f FROM Favorito f WHERE f.id.email = ?1")
 	Favorito findByEmail(String email);
 }

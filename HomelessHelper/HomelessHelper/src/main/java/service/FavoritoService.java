@@ -17,5 +17,4 @@ public interface FavoritoService {
 
 	Boolean deleteFavorito(Favorito favorito);
 
-	
 }

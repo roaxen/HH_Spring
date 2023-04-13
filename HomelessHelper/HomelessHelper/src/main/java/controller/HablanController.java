@@ -31,7 +31,7 @@ public class HablanController {
 		return hablanservice.retrieveHablan(hablanpk);
 	}
 
-	@PostMapping(value = "newChat", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "newChat", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String saveHablan(@RequestBody Hablan hablan) {
 		return String.valueOf(hablanservice.addHablan(hablan));
 	}

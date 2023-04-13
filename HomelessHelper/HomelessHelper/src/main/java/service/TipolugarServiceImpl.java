@@ -9,11 +9,11 @@ import dao.TipolugarDao;
 import model.Tipolugar;
 
 @Service
-public class TipolugarServiceImpl implements TipolugarService{
+public class TipolugarServiceImpl implements TipolugarService {
 
 	@Autowired
 	TipolugarDao tipolugardao;
-	
+
 	@Override
 	public Tipolugar getTipoLugar(int idTipoLugar) {
 		// TODO Auto-generated method stub

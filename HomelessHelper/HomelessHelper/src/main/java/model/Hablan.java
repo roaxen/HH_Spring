@@ -3,13 +3,12 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the hablan database table.
  * 
  */
 @Entity
-@NamedQuery(name="Hablan.findAll", query="SELECT h FROM Hablan h")
+@NamedQuery(name = "Hablan.findAll", query = "SELECT h FROM Hablan h")
 public class Hablan implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,14 +18,14 @@ public class Hablan implements Serializable {
 	@Lob
 	private String mensaje;
 
-	//bi-directional many-to-one association to Usuario
+	// bi-directional many-to-one association to Usuario
 	@ManyToOne
-	@JoinColumn(name="email_oferta", insertable=false, updatable=false)
+	@JoinColumn(name = "email_oferta", insertable = false, updatable = false)
 	private Usuario usuario1;
 
-	//bi-directional many-to-one association to Usuario
+	// bi-directional many-to-one association to Usuario
 	@ManyToOne
-	@JoinColumn(name="email", insertable=false, updatable=false)
+	@JoinColumn(name = "email", insertable = false, updatable = false)
 	private Usuario usuario2;
 
 	public Hablan() {

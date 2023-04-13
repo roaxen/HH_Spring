@@ -45,14 +45,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public void updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		
+
 		usuarioDao.save(usuario);
 	}
-	
+
 	@Override
 	public Usuario checkameUsuario(String email, String clave) {
 		// TODO Auto-generated method stub
-		
+
 		return usuarioDao.checkUserExists(email, clave);
 	}
 
@@ -63,5 +63,5 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		usuario.setClave(new_clave);
 		usuarioDao.save(usuario);
 	}
-	
+
 }

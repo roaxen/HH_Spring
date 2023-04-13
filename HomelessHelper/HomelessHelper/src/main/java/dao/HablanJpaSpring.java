@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import model.Hablan;
 
-public interface HablanJpaSpring extends JpaRepository<Hablan, String>{
-
+public interface HablanJpaSpring extends JpaRepository<Hablan, String> {
 
 }

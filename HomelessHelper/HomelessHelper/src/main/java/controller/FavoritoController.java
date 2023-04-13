@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import service.FavoritoService;
 import service.LugarService;
 import model.Favorito;
-import model.FavoritoPK;
-import model.Lugar;
 
 @RestController
 public class FavoritoController {
@@ -30,8 +28,9 @@ public class FavoritoController {
 		return favoritoservice.retrieveFavoritos();
 	}
 
-	@PostMapping(value = "newFavorito", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "newFavorito", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Favorito saveFavorito(@RequestBody Favorito favorito) {
+
 		if (favoritoservice.addFavorito(favorito)) {
 			return favorito;
 		} else {

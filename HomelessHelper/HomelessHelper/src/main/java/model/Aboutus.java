@@ -3,13 +3,12 @@ package model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the aboutus database table.
  * 
  */
 @Entity
-@NamedQuery(name="Aboutus.findAll", query="SELECT a FROM Aboutus a")
+@NamedQuery(name = "Aboutus.findAll", query = "SELECT a FROM Aboutus a")
 public class Aboutus implements Serializable {
 	private static final long serialVersionUID = 1L;
 

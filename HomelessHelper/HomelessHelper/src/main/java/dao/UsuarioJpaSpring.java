@@ -7,16 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import jakarta.transaction.Transactional;
 import model.Usuario;
 
-public interface UsuarioJpaSpring extends JpaRepository<Usuario,String>{
-	
+public interface UsuarioJpaSpring extends JpaRepository<Usuario, String> {
+
 	@Transactional
 	@Modifying
 	@Query("Delete from Usuario u Where u.email=?1")
 	void removeByEmail(String email);
-	
+
 	@Query("SELECT u FROM Usuario u WHERE u.email = ?1 and u.clave =?2")
 	Usuario checkUserExists(String email, String clave);
-	
-	
-	
-	}
+
+}

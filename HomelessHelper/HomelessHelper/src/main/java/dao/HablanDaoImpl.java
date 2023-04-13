@@ -17,7 +17,7 @@ public class HablanDaoImpl implements HablanDao {
 	@Override
 	public void addHablan(Hablan hablan) {
 		// TODO Auto-generated method stub
-		hablanDao.save(hablan);		
+		hablanDao.save(hablan);
 	}
 
 	@Override
@@ -50,5 +50,4 @@ public class HablanDaoImpl implements HablanDao {
 		hablanDao.save(hablan);
 	}
 
-	
 }

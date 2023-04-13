@@ -6,19 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.LugarDao;
-import model.Favorito;
 import model.Lugar;
 
 @Service
-public class LugarServiceImpl implements LugarService{
-	
+public class LugarServiceImpl implements LugarService {
+
 	@Autowired
 	LugarDao lugarDao;
-	
+
 	@Override
 	public boolean addLugar(Lugar lugar) {
 
-		if(lugarDao.retrieveLugar(lugar.getIdLugar()) == null) {
+		if (lugarDao.retrieveLugar(lugar.getIdLugar()) == null) {
 			lugarDao.addLugar(lugar);
 			return true;
 		}
@@ -33,17 +32,16 @@ public class LugarServiceImpl implements LugarService{
 
 	@Override
 	public boolean updateLugar(Lugar lugar) {
-		if(lugarDao.retrieveLugar(lugar.getIdLugar())!= null)
-		{
+		if (lugarDao.retrieveLugar(lugar.getIdLugar()) != null) {
 			lugarDao.addLugar(lugar);
 			return true;
 		}
-		return false;	
+		return false;
 	}
 
 	@Override
 	public boolean deleteLugar(int idLugar) {
-		if(lugarDao.retrieveLugar(idLugar)!= null) {
+		if (lugarDao.retrieveLugar(idLugar) != null) {
 			lugarDao.removeLugar(idLugar);
 			return true;
 		}
@@ -52,7 +50,7 @@ public class LugarServiceImpl implements LugarService{
 
 	@Override
 	public Lugar retrieveLugar(int idLugar) {
-		
+
 		return lugarDao.retrieveLugar(idLugar);
 	}
 
@@ -67,6 +65,5 @@ public class LugarServiceImpl implements LugarService{
 //		// TODO Auto-generated method stub
 //		return lugarDao.getLugaresFav(favorito);
 //	}
-	
 
 }

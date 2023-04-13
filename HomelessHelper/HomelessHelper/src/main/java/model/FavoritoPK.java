@@ -9,27 +9,30 @@ import jakarta.persistence.*;
  */
 @Embeddable
 public class FavoritoPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable=false, updatable=false)
+	@Column(insertable = false, updatable = false)
 	private String email;
 
-	@Column(name="id_lugar", insertable=false, updatable=false)
+	@Column(name = "id_lugar", insertable = false, updatable = false)
 	private int idLugar;
 
 	public FavoritoPK() {
 	}
-	
+
 	public String getEmail() {
 		return this.email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public int getIdLugar() {
 		return this.idLugar;
 	}
+
 	public void setIdLugar(int idLugar) {
 		this.idLugar = idLugar;
 	}
@@ -41,10 +44,8 @@ public class FavoritoPK implements Serializable {
 		if (!(other instanceof FavoritoPK)) {
 			return false;
 		}
-		FavoritoPK castOther = (FavoritoPK)other;
-		return 
-			this.email.equals(castOther.email)
-			&& (this.idLugar == castOther.idLugar);
+		FavoritoPK castOther = (FavoritoPK) other;
+		return this.email.equals(castOther.email) && (this.idLugar == castOther.idLugar);
 	}
 
 	public int hashCode() {
@@ -52,7 +53,7 @@ public class FavoritoPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + this.email.hashCode();
 		hash = hash * prime + this.idLugar;
-		
+
 		return hash;
 	}
 }

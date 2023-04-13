@@ -26,7 +26,7 @@ public class AboutusDaoImpl implements AboutusDao {
 	}
 
 	@Override
-	public List<Aboutus>getAboutus() {
+	public List<Aboutus> getAboutus() {
 		// TODO Auto-generated method stub
 		return aboutusDao.findAll();
 	}

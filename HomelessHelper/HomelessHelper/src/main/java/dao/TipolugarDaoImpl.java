@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 import model.Tipolugar;
 
 @Repository
-public class TipolugarDaoImpl implements TipolugarDao{
+public class TipolugarDaoImpl implements TipolugarDao {
 
 	@Autowired
 	TipolugarJpaSpring tipolugarJpaSpring;
-	
+
 	@Override
 	public Tipolugar getTipoLugar(int idTipoLugar) {
 		// TODO Auto-generated method stub

@@ -8,7 +8,7 @@ import model.Usuario;
 
 @Service
 public interface UsuarioService {
-	
+
 	boolean addUsuario(Usuario Usuario);
 
 	List<Usuario> retrieveUsuarios();
@@ -18,13 +18,9 @@ public interface UsuarioService {
 	boolean deleteUsuario(String email);
 
 	Usuario retrieveUsuario(String email);
-	
+
 	boolean updatePassword(String email, String clave, String new_clave);
 
 	Usuario checkUserExists(String email, String clave);
 
 }
-
-
-
-
