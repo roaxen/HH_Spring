@@ -11,7 +11,7 @@ public interface FavoritoService {
 
 	List<Favorito> retrieveFavoritos();
 
-	Favorito retrieveFavorito(Favorito favorito);
+	List<Favorito> retrieveFavorito(String email);
 
 	Boolean addFavorito(Favorito favorito);
 

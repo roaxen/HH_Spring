@@ -11,7 +11,7 @@ public interface FavoritoDao {
 
 	List<Favorito> getFavoritos();
 
-	Favorito getFavorito(Favorito favorito);
+	List<Favorito> getFavorito(String email);
 
 	Boolean addFavorito(Favorito favorito);
 

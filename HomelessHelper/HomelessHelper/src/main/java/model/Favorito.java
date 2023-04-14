@@ -16,6 +16,11 @@ public class Favorito implements Serializable {
 	@EmbeddedId
 	private FavoritoPK id;
 
+	@Override
+	public String toString() {
+		return "Favorito [id=" + id + "]";
+	}
+
 	public Favorito() {
 	}
 
@@ -26,5 +31,4 @@ public class Favorito implements Serializable {
 	public void setId(FavoritoPK id) {
 		this.id = id;
 	}
-
 }

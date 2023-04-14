@@ -20,4 +20,7 @@ public interface LugarJpaSpring extends JpaRepository<Lugar, Integer> {
 
 	@Query("SELECT l FROM Lugar l WHERE l.idTipolugar = :idTipolugar")
 	List<Lugar> findLugaresByTipoLugar(@Param("idTipolugar") int idTipolugar);
+	
+	@Query("SELECT l FROM Lugar l WHERE l.email = :email")
+	List<Lugar> findLugaresByEmail(@Param("email") String email);
 }

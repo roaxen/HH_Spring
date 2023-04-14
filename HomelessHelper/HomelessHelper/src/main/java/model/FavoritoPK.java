@@ -9,6 +9,11 @@ import jakarta.persistence.*;
  */
 @Embeddable
 public class FavoritoPK implements Serializable {
+	@Override
+	public String toString() {
+		return "FavoritoPK [email=" + email + ", idLugar=" + idLugar + "]";
+	}
+
 	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 

@@ -21,9 +21,9 @@ public class FavoritoServiceImpl implements FavoritoService {
 	}
 
 	@Override
-	public Favorito retrieveFavorito(Favorito favorito) {
+	public List<Favorito> retrieveFavorito(String email) {
 		// TODO Auto-generated method stub
-		return favoritoDao.getFavorito(favorito);
+		return favoritoDao.getFavorito(email);
 	}
 
 	@Override

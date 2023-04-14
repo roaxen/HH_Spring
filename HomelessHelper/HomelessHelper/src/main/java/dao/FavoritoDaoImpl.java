@@ -19,9 +19,12 @@ public class FavoritoDaoImpl implements FavoritoDao {
 	}
 
 	@Override
-	public Favorito getFavorito(Favorito favorito) {
+	public List<Favorito> getFavorito(String email) {
 		// TODO Auto-generated method stub
-		return favoritoDao.findByEmail(favorito.getId().getEmail());
+
+		List<Favorito> favoritos = favoritoDao.findByEmail(email);
+
+		return favoritos;
 	}
 
 	@Override
