@@ -20,4 +20,6 @@ public interface LugarService {
 
 	List<Lugar> getLugaresPorTipo(int idTipoLugar);
 
+	List<Lugar> findLugaresByWord(String valor);
+
 }

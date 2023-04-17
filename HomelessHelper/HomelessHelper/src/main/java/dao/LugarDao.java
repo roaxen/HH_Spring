@@ -22,5 +22,7 @@ public interface LugarDao {
 
 	List<Lugar> getLugaresPorTipo(int idTipoLugar);
 
+	List<Lugar> findLugaresByWord(String valor);
+
 //		List<Lugar> getLugaresFav(Favorito favorito);
 }

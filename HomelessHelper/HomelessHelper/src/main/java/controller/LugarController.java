@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import service.LugarService;
+import model.Credenciales;
 import model.Lugar;
 import model.Tipolugar;
 
@@ -71,4 +71,9 @@ public class LugarController {
 		return lugares;
 	}
 
+	@GetMapping(value = "searchLugares", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Lugar> findLugaresByWord(@RequestBody Credenciales valor) {
+
+		return lugarService.findLugaresByWord(valor.getValor());
+	}
 }

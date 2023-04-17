@@ -18,6 +18,7 @@ import model.Credenciales;
 
 @RestController
 public class UsuarioController {
+
 	@Autowired
 	UsuarioService usuarioservice;
 

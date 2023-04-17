@@ -60,6 +60,12 @@ public class LugarServiceImpl implements LugarService {
 		return lugarDao.getLugaresPorTipo(idTipoLugar);
 	}
 
+	@Override
+	public List<Lugar> findLugaresByWord(String valor) {
+		// TODO Auto-generated method stub
+		return lugarDao.findLugaresByWord(valor);
+	}
+
 //	@Override
 //	public List<Lugar> retrieveLugarFav(Favorito favorito) {
 //		// TODO Auto-generated method stub
