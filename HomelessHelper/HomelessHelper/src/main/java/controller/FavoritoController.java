@@ -31,7 +31,7 @@ public class FavoritoController {
 		return favoritoservice.retrieveFavoritos();
 	}
 
-	@GetMapping(value = "lugaresFavoritos", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "lugaresFavoritos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> getLugaresFavoritos(@RequestBody FavoritoPK email) {
 
 		List<Lugar> lugaresFavoritos = new ArrayList<Lugar>();
