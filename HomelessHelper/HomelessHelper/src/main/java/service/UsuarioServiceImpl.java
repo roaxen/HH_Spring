@@ -36,8 +36,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		if (usuarioDao.retrieveUsuario(usuario.getEmail()) != null) {
+			
 			usuario.setClave(encrypt(usuario.getClave()));
+			
 			usuarioDao.updateUsuario(usuario);
+			
 			return true;
 		}
 		return false;
