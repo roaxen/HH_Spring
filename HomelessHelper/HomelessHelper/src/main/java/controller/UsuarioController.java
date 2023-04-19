@@ -30,7 +30,6 @@ public class UsuarioController {
 	@PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario loginUsuario(@RequestBody Credenciales credenciales) {
 		Usuario user = usuarioservice.checkUserExists(credenciales.getEmail(), credenciales.getClave());
-		user.setClave(null);
 		return user;
 	}
 
@@ -43,7 +42,6 @@ public class UsuarioController {
 	@PostMapping(value = "signin", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario saveUsuario(@RequestBody Usuario usuario) {
 		if (usuarioservice.addUsuario(usuario)) {
-			usuario.setClave(null);
 			return usuario;
 		} else {
 			Usuario nullUser = new Usuario();
@@ -54,7 +52,6 @@ public class UsuarioController {
 	@PutMapping(value = "profile", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario updateUsuario(@RequestBody Usuario usuario) {
 		if (String.valueOf(usuarioservice.updateUsuario(usuario)) != null) {
-			usuario.setClave(null);
 			return usuario;
 		} else {
 			Usuario nullUser = new Usuario();
@@ -67,7 +64,6 @@ public class UsuarioController {
 		if (String.valueOf(usuarioservice.updatePassword(credenciales.getEmail(), credenciales.getClave(),
 				credenciales.getNew_clave())) != null) {
 			Usuario user = retrieveUsuario(credenciales.getEmail());
-			user.setClave(null);
 			return user;
 		} else {
 			Usuario nullUser = new Usuario();
