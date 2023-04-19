@@ -2,7 +2,6 @@ package service;
 
 import java.util.List;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public boolean addUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		if (usuarioDao.retrieveUsuario(usuario.getEmail()) == null) {
-			usuario.setClave(encrypt(usuario.getClave()));
 			usuarioDao.addUsuario(usuario);
 			return true;
 		}
@@ -35,10 +33,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public boolean updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		if (usuarioDao.retrieveUsuario(usuario.getEmail()) != null) {
-			
-			usuario.setClave(encrypt(usuario.getClave()));
-			
+
+		
+		Usuario user = usuarioDao.checkameUsuario(usuario.getEmail(), usuario.getClave());
+
+		if (user.getEmail() != null) {
+
 			usuarioDao.updateUsuario(usuario);
 			
 			return true;
@@ -65,25 +65,18 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Usuario checkUserExists(String email, String clave) {
 		// TODO Auto-generated method stub
-		return usuarioDao.checkameUsuario(email, encrypt(clave));
+		return usuarioDao.checkameUsuario(email, clave);
 	}
 
 	@Override
 	public boolean updatePassword(String email, String clave, String new_clave) {
 		// TODO Auto-generated method stub
-		if (usuarioDao.checkameUsuario(email, encrypt(clave)).getEmail() != null) {
+		if (usuarioDao.checkameUsuario(email, clave).getEmail() != null) {
 			Usuario user = checkUserExists(email, clave);
-			user.setClave(encrypt(new_clave));
+			user.setClave(new_clave);
 			usuarioDao.updateUsuario(user);
 			return true;
 		}
 		return false;
-	}
-
-	public String encrypt(String clave) {
-
-		String claveCriptica = DigestUtils.md5Hex(clave);
-
-		return claveCriptica;
 	}
 }
