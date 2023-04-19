@@ -33,6 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public boolean updateUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
+
 		
 		Usuario user = usuarioDao.checkameUsuario(usuario.getEmail(), usuario.getClave());
 
