@@ -13,6 +13,7 @@ import service.TipolugarService;
 
 @RestController
 public class TipolugarController {
+
 	@Autowired
 	TipolugarService tipolugarService;
 
@@ -21,7 +22,7 @@ public class TipolugarController {
 		return tipolugarService.retrieveTipolugar();
 	}
 
-	@GetMapping(value = "tipoLugar/", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "tipoLugar/{idTipolugar}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Tipolugar retrieveLugar(@PathVariable int idTipolugar) {
 		return tipolugarService.getTipoLugar(idTipolugar);
 	}

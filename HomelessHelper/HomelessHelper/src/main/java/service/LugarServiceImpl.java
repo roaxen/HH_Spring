@@ -65,11 +65,4 @@ public class LugarServiceImpl implements LugarService {
 		// TODO Auto-generated method stub
 		return lugarDao.findLugaresByWord(valor);
 	}
-
-//	@Override
-//	public List<Lugar> retrieveLugarFav(Favorito favorito) {
-//		// TODO Auto-generated method stub
-//		return lugarDao.getLugaresFav(favorito);
-//	}
-
 }

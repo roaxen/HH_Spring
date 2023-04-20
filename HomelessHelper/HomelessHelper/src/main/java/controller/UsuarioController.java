@@ -36,7 +36,6 @@ public class UsuarioController {
 	@GetMapping(value = "profile/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Usuario retrieveUsuario(@PathVariable("email") String email) {
 		return usuarioservice.retrieveUsuario(email);
-
 	}
 
 	@PostMapping(value = "signin", produces = MediaType.APPLICATION_JSON_VALUE)
