@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,8 +61,18 @@ public class FavoritoController {
 		}
 	}
 
-	@DeleteMapping(value = "deleteFavorito", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String deleteFavorito(@RequestBody Favorito favorito) {
+	@DeleteMapping(value = "deleteFavorito/{id}/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String deleteFavorito(@PathVariable int id, @PathVariable String email) {
+		
+		FavoritoPK fav = new FavoritoPK();
+		fav.setIdLugar(id);
+		fav.setEmail(email);
+		
+		Favorito favorito = new Favorito();
+		favorito.setId(fav);
+		
+		System.out.println(favorito);
+		
 		return String.valueOf(favoritoservice.deleteFavorito(favorito));
 	}
 }
