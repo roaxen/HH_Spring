@@ -63,7 +63,7 @@ public class LugarController {
 		return lugarService.deleteLugar(idLugar);
 	}
 
-	@GetMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> getLugaresPorTipo(@RequestBody Tipolugar idTipoLugar) {
 
 		List<Lugar> lugares = lugarService.getLugaresPorTipo(idTipoLugar.getIdTipolugar());
@@ -71,7 +71,7 @@ public class LugarController {
 		return lugares;
 	}
 
-	@GetMapping(value = "searchLugares", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "searchLugares", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> findLugaresByWord(@RequestBody Credenciales valor) {
 
 		return lugarService.findLugaresByWord(valor.getValor());

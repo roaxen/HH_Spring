@@ -18,8 +18,8 @@ public interface EmpleoService {
 
 	Empleo retrieveEmpleo(int idEmpleo);
 
-	List<Empleo> getEmpleoesPorTipo(int idTipoEmpleo);
+	List<Empleo> getEmpleosPorTipo(int idTipoEmpleo);
 
-	List<Empleo> findEmpleoesByWord(String valor);
+	List<Empleo> findEmpleosByWord(String valor);
 
 }

@@ -35,18 +35,10 @@ public class FavoritoController {
 	public List<Lugar> getLugaresFavoritos(@RequestBody FavoritoPK email) {
 
 		List<Lugar> lugaresFavoritos = new ArrayList<Lugar>();
-		
-		System.out.println("-----------------------------------");
-		
-		System.out.println(lugaresFavoritos);
-		
-		System.out.println("-----------------------------------");
 
 		email.setIdLugar(0);
 
 		List<Favorito> favoritosEmail = favoritoservice.retrieveFavorito(email.getEmail());
-		
-		System.out.println(favoritosEmail);
 
 		for (Favorito f : favoritosEmail) {
 
@@ -54,13 +46,6 @@ public class FavoritoController {
 
 			lugaresFavoritos.add(lugarActual);
 		}
-		
-		System.out.println("-----------------------------------");
-		
-		System.out.println(lugaresFavoritos);
-		
-		System.out.println("-----------------------------------");
-		
 		return lugaresFavoritos;
 	}
 

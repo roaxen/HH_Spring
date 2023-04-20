@@ -35,17 +35,15 @@ public class Empleo implements Serializable {
 
 	private String titulo;
 
-	//bi-directional many-to-one association to Tipoempleo
-	@ManyToOne
-	@JoinColumn(name="tipotrabajo")
-	private Tipoempleo tipoempleo;
+	@Column(name="tipotrabajo")
+	private int tipoempleo;
 
 	public Empleo() {
 	}
 
 	public int getId() {
 		return this.id;
-	}
+	}	
 
 	public void setId(int id) {
 		this.id = id;
@@ -107,11 +105,11 @@ public class Empleo implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public Tipoempleo getTipoempleo() {
+	public int getTipoempleo() {
 		return this.tipoempleo;
 	}
 
-	public void setTipoempleo(Tipoempleo tipoempleo) {
+	public void setTipoempleo(int tipoempleo) {
 		this.tipoempleo = tipoempleo;
 	}
 

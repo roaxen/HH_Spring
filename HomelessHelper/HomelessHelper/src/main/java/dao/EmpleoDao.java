@@ -20,7 +20,7 @@ public interface EmpleoDao {
 
 	void updateEmpleo(Empleo empleo);
 
-	List<Empleo> getEmpleoesPorTipo(int idTipoEmpleo);
+	List<Empleo> getEmpleosPorTipo(int idTipoEmpleo);
 
-	List<Empleo> findEmpleoesByWord(String valor);
+	List<Empleo> findEmpleosByWord(String valor);
 }

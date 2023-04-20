@@ -63,17 +63,21 @@ public class EmpleoController {
 		return empleoService.deleteEmpleo(idEmpleo);
 	}
 
-	@GetMapping(value = "getEmpleoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "getEmpleoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> getEmpleoesPorTipo(@RequestBody Tipoempleo idTipoEmpleo) {
+		
+		System.err.println(idTipoEmpleo.getId());
 
-		List<Empleo> empleoes = empleoService.getEmpleoesPorTipo(idTipoEmpleo.getId());
-		Collections.reverse(empleoes);
-		return empleoes;
+		List<Empleo> empleos = empleoService.getEmpleosPorTipo(idTipoEmpleo.getId());
+		
+		Collections.reverse(empleos);
+		
+		return empleos;
 	}
 
-	@GetMapping(value = "searchEmpleoes", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Empleo> findEmpleoesByWord(@RequestBody Credenciales valor) {
+	@GetMapping(value = "searchEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Empleo> findEmpleosByWord(@RequestBody Credenciales valor) {
 
-		return empleoService.findEmpleoesByWord(valor.getValor());
+		return empleoService.findEmpleosByWord(valor.getValor());
 	}
 }

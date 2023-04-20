@@ -55,14 +55,14 @@ public class EmpleoServiceImpl implements EmpleoService {
 	}
 
 	@Override
-	public List<Empleo> getEmpleoesPorTipo(int idTipoEmpleo) {
+	public List<Empleo> getEmpleosPorTipo(int idTipoEmpleo) {
 		// TODO Auto-generated method stub
-		return empleoDao.getEmpleoesPorTipo(idTipoEmpleo);
+		return empleoDao.getEmpleosPorTipo(idTipoEmpleo);
 	}
 
 	@Override
-	public List<Empleo> findEmpleoesByWord(String valor) {
+	public List<Empleo> findEmpleosByWord(String valor) {
 		// TODO Auto-generated method stub
-		return empleoDao.findEmpleoesByWord(valor);
+		return empleoDao.findEmpleosByWord(valor);
 	}
 }
