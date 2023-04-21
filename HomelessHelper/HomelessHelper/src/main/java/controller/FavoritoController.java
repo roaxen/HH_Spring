@@ -81,8 +81,6 @@ public class FavoritoController {
 		Favorito favorito = new Favorito();
 		favorito.setId(fav);
 
-		System.out.println(favorito);
-
 		return String.valueOf(favoritoservice.deleteFavorito(favorito));
 	}
 }
