@@ -42,4 +42,10 @@ public class FavoritoServiceImpl implements FavoritoService {
 		return favoritoDao.deleteFavorito(favorito);
 	}
 
+	@Override
+	public boolean checkFavExists(Favorito fav) {
+		// TODO Auto-generated method stub
+		return favoritoDao.checkFavExists(fav);
+	}
+
 }

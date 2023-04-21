@@ -47,4 +47,14 @@ public class FavoritoDaoImpl implements FavoritoDao {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean checkFavExists(Favorito fav) {
+		// TODO Auto-generated method stub
+		if (favoritoDao.checkFavExists(fav.getId().getIdLugar(), fav.getId().getEmail()) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

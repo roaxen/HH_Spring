@@ -32,6 +32,16 @@ public class FavoritoController {
 		return favoritoservice.retrieveFavoritos();
 	}
 
+	@PostMapping(value = "favorito", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Boolean getFavorito(@RequestBody Favorito fav) {
+
+		if (favoritoservice.checkFavExists(fav)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	@PostMapping(value = "lugaresFavoritos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> getLugaresFavoritos(@RequestBody FavoritoPK email) {
 
@@ -63,16 +73,16 @@ public class FavoritoController {
 
 	@DeleteMapping(value = "deleteFavorito/{id}/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String deleteFavorito(@PathVariable int id, @PathVariable String email) {
-		
+
 		FavoritoPK fav = new FavoritoPK();
 		fav.setIdLugar(id);
 		fav.setEmail(email);
-		
+
 		Favorito favorito = new Favorito();
 		favorito.setId(fav);
-		
+
 		System.out.println(favorito);
-		
+
 		return String.valueOf(favoritoservice.deleteFavorito(favorito));
 	}
 }

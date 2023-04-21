@@ -17,4 +17,6 @@ public interface FavoritoDao {
 
 	Boolean deleteFavorito(Favorito favorito);
 
+	boolean checkFavExists(Favorito fav);
+
 }
