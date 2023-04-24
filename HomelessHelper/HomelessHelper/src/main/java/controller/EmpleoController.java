@@ -66,8 +66,6 @@ public class EmpleoController {
 	@PostMapping(value = "getEmpleoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> getEmpleoesPorTipo(@RequestBody Tipoempleo idTipoEmpleo) {
 		
-		System.err.println(idTipoEmpleo.getId());
-
 		List<Empleo> empleos = empleoService.getEmpleosPorTipo(idTipoEmpleo.getId());
 		
 		Collections.reverse(empleos);
