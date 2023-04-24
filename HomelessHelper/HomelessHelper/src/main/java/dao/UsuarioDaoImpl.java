@@ -63,5 +63,4 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		usuario.setClave(new_clave);
 		usuarioDao.save(usuario);
 	}
-
 }

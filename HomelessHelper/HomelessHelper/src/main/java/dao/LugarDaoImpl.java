@@ -61,10 +61,4 @@ public class LugarDaoImpl implements LugarDao {
 		// TODO Auto-generated method stub
 		return lugarDao.findLugaresByWord(valor);
 	}
-
-//	@Override
-//	public List<Lugar> getLugaresFav(Favorito favorito) {
-//		// TODO Auto-generated method stub
-//		return lugarDao.findAllByFav(favorito.getId().getIdLugar());
-//	}
 }
