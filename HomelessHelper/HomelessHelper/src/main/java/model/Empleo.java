@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -13,6 +15,13 @@ import java.util.Date;
 @Table(name="empleos")
 @NamedQuery(name="Empleo.findAll", query="SELECT e FROM Empleo e")
 public class Empleo implements Serializable {
+	@Override
+	public String toString() {
+		return "Empleo [id=" + id + ", descripcion=" + descripcion + ", email=" + email + ", fecha=" + fecha
+				+ ", imagen=" + Arrays.toString(imagen) + ", localidad=" + localidad + ", precio=" + precio
+				+ ", titulo=" + titulo + ", tipoempleo=" + tipoempleo + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

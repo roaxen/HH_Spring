@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Arrays;
+
 import jakarta.persistence.*;
 
 /**
@@ -10,6 +12,12 @@ import jakarta.persistence.*;
 @Entity
 @NamedQuery(name = "Aboutus.findAll", query = "SELECT a FROM Aboutus a")
 public class Aboutus implements Serializable {
+	@Override
+	public String toString() {
+		return "Aboutus [id=" + id + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", descripcion="
+				+ descripcion + ", imagen=" + Arrays.toString(imagen) + ", nombre=" + nombre + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

@@ -35,11 +35,8 @@ public class FavoritoController {
 	@PostMapping(value = "favorito", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Boolean getFavorito(@RequestBody Favorito fav) {
 
-		if (favoritoservice.checkFavExists(fav)) {
-			return true;
-		} else {
-			return false;
-		}
+		return favoritoservice.checkFavExists(fav);
+
 	}
 
 	@PostMapping(value = "lugaresFavoritos", produces = MediaType.APPLICATION_JSON_VALUE)

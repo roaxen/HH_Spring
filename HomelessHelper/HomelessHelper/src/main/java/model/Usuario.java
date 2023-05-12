@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -12,6 +14,12 @@ import java.util.Date;
 @Entity
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
+	@Override
+	public String toString() {
+		return "Usuario [email=" + email + ", apellidos=" + apellidos + ", ciudad=" + ciudad + ", clave=" + clave
+				+ ", fechaNac=" + fechaNac + ", imagen=" + Arrays.toString(imagen) + ", nombre=" + nombre + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
