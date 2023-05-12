@@ -9,44 +9,38 @@ import jakarta.persistence.*;
  */
 @Embeddable
 public class HablanPK implements Serializable {
-	// default serial version id, required for serializable classes.
+	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable = false, updatable = false)
-	private String email;
+	@Column(name="email_user1", insertable=false, updatable=false)
+	private String emailUser1;
 
-	@Column(name = "email_oferta", insertable = false, updatable = false)
-	private String emailOferta;
+	@Column(name="email_user2", insertable=false, updatable=false)
+	private String emailUser2;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_conversacion")
-	private java.util.Date fechaConversacion;
+	@Column(name="fecha_mensaje")
+	private java.util.Date fechaMensaje;
 
 	public HablanPK() {
 	}
-
-	public String getEmail() {
-		return this.email;
+	public String getEmailUser1() {
+		return this.emailUser1;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailUser1(String emailUser1) {
+		this.emailUser1 = emailUser1;
 	}
-
-	public String getEmailOferta() {
-		return this.emailOferta;
+	public String getEmailUser2() {
+		return this.emailUser2;
 	}
-
-	public void setEmailOferta(String emailOferta) {
-		this.emailOferta = emailOferta;
+	public void setEmailUser2(String emailUser2) {
+		this.emailUser2 = emailUser2;
 	}
-
-	public java.util.Date getFechaConversacion() {
-		return this.fechaConversacion;
+	public java.util.Date getFechaMensaje() {
+		return this.fechaMensaje;
 	}
-
-	public void setFechaConversacion(java.util.Date fechaConversacion) {
-		this.fechaConversacion = fechaConversacion;
+	public void setFechaMensaje(java.util.Date fechaMensaje) {
+		this.fechaMensaje = fechaMensaje;
 	}
 
 	public boolean equals(Object other) {
@@ -56,18 +50,20 @@ public class HablanPK implements Serializable {
 		if (!(other instanceof HablanPK)) {
 			return false;
 		}
-		HablanPK castOther = (HablanPK) other;
-		return this.email.equals(castOther.email) && this.emailOferta.equals(castOther.emailOferta)
-				&& this.fechaConversacion.equals(castOther.fechaConversacion);
+		HablanPK castOther = (HablanPK)other;
+		return 
+			this.emailUser1.equals(castOther.emailUser1)
+			&& this.emailUser2.equals(castOther.emailUser2)
+			&& this.fechaMensaje.equals(castOther.fechaMensaje);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.email.hashCode();
-		hash = hash * prime + this.emailOferta.hashCode();
-		hash = hash * prime + this.fechaConversacion.hashCode();
-
+		hash = hash * prime + this.emailUser1.hashCode();
+		hash = hash * prime + this.emailUser2.hashCode();
+		hash = hash * prime + this.fechaMensaje.hashCode();
+		
 		return hash;
 	}
 }

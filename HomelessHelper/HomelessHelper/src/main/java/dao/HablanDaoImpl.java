@@ -35,13 +35,13 @@ public class HablanDaoImpl implements HablanDao {
 	@Override
 	public void removeHablan(HablanPK hablanPK) {
 		// TODO Auto-generated method stub
-		hablanDao.deleteById(hablanPK.getEmail());
+		hablanDao.deleteById(hablanPK.getEmailUser1());
 	}
 
 	@Override
 	public Hablan retrieveHablan(HablanPK hablanPK) {
 		// TODO Auto-generated method stub
-		return hablanDao.findById(hablanPK.getEmail()).orElse(null);
+		return hablanDao.findById(hablanPK.getEmailUser1()).orElse(null);
 	}
 
 	@Override

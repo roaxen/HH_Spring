@@ -53,7 +53,16 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	public Usuario checkameUsuario(String email, String clave) {
 		// TODO Auto-generated method stub
 
-		return usuarioDao.checkUserExists(email, clave);
+		Usuario user = usuarioDao.checkUserExists(email, clave);
+
+		Usuario nullUser = new Usuario();
+
+		if (user != null) {
+
+			return user;
+		} else {
+			return nullUser;
+		}
 	}
 
 	@Override
