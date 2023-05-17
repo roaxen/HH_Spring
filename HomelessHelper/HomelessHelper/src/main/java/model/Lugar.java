@@ -22,6 +22,9 @@ public class Lugar implements Serializable {
 	private String direccion;
 
 	private String email;
+	
+	@Lob
+	private byte[] imagen;
 
 	@Column(name = "email_responsable")
 	private String emailResponsable;

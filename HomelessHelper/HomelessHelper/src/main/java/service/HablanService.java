@@ -18,4 +18,5 @@ public interface HablanService {
 	boolean deleteHablan(HablanPK hablanPK);
 
 	Hablan retrieveHablan(HablanPK hablanPK);
+
 }
