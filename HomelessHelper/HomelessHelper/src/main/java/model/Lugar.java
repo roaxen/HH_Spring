@@ -26,6 +26,14 @@ public class Lugar implements Serializable {
 	@Lob
 	private byte[] imagen;
 
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
 	@Column(name = "email_responsable")
 	private String emailResponsable;
 
