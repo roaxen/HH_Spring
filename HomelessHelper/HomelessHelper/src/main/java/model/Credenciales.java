@@ -2,12 +2,6 @@ package model;
 
 public class Credenciales {
 
-	@Override
-	public String toString() {
-		return "Credenciales [clave=" + clave + ", email=" + email + ", new_clave=" + new_clave + ", valor=" + valor
-				+ "]";
-	}
-
 	String clave;
 	String email;
 	String new_clave;
@@ -56,5 +50,10 @@ public class Credenciales {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Credenciales [clave=" + clave + ", email=" + email + ", new_clave=" + new_clave + ", valor=" + valor
+				+ "]";
+	}
 }

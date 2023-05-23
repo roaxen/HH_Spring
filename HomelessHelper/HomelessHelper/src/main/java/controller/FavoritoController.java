@@ -1,3 +1,14 @@
+/*
+ * 
+ * Controlador de los EndPoints del modelo favorito,
+ * recibe la información y la transmite a la capa "service"
+ * 
+ * @Author: HomelessHelper
+ * @Version 1.0.0
+ * @Since 30-05-2023
+ * 
+ */
+
 package controller;
 
 import java.util.ArrayList;

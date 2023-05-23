@@ -18,12 +18,6 @@ public class Tipolugar implements Serializable {
 	private int idTipolugar;
 
 	private String descripcion;
-
-	@Override
-	public String toString() {
-		return "Tipolugar [idTipolugar=" + idTipolugar + ", descripcion=" + descripcion + "]";
-	}
-
 	public Tipolugar() {
 	}
 
@@ -43,4 +37,8 @@ public class Tipolugar implements Serializable {
 		this.descripcion = descripcion;
 	}
 
+	@Override
+	public String toString() {
+		return "Tipolugar [idTipolugar=" + idTipolugar + ", descripcion=" + descripcion + "]";
+	}
 }

@@ -10,11 +10,6 @@ import jakarta.persistence.*;
 @Entity
 @NamedQuery(name="Tipoempleo.findAll", query="SELECT t FROM Tipoempleo t")
 public class Tipoempleo implements Serializable {
-	
-	@Override
-	public String toString() {
-		return "Tipoempleo [id=" + id + ", descripcion=" + descripcion + "]";
-	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -40,5 +35,10 @@ public class Tipoempleo implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}	
+	
+	@Override
+	public String toString() {
+		return "Tipoempleo [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 }

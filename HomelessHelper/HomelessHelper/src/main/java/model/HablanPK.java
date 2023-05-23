@@ -9,11 +9,6 @@ import jakarta.persistence.*;
  */
 @Embeddable
 public class HablanPK implements Serializable {
-	@Override
-	public String toString() {
-		return "HablanPK [emailUser1=" + emailUser1 + ", emailUser2=" + emailUser2 + ", fechaMensaje=" + fechaMensaje
-				+ "]";
-	}
 
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
@@ -71,5 +66,11 @@ public class HablanPK implements Serializable {
 		hash = hash * prime + this.fechaMensaje.hashCode();
 		
 		return hash;
+	}
+	
+	@Override
+	public String toString() {
+		return "HablanPK [emailUser1=" + emailUser1 + ", emailUser2=" + emailUser2 + ", fechaMensaje=" + fechaMensaje
+				+ "]";
 	}
 }

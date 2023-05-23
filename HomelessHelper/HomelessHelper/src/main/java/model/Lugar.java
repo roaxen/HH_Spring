@@ -40,13 +40,6 @@ public class Lugar implements Serializable {
 	@Column(name = "id_tipolugar")
 	private int idTipolugar;
 
-	@Override
-	public String toString() {
-		return "Lugar [idLugar=" + idLugar + ", descripcion=" + descripcion + ", direccion=" + direccion + ", email="
-				+ email + ", emailResponsable=" + emailResponsable + ", idTipolugar=" + idTipolugar + ", nombre="
-				+ nombre + ", telefono=" + telefono + ", ubicacion=" + ubicacion + ", valoracion=" + valoracion + "]";
-	}
-
 	private String nombre;
 
 	private int telefono;
@@ -138,4 +131,10 @@ public class Lugar implements Serializable {
 		this.valoracion = valoracion;
 	}
 
+	@Override
+	public String toString() {
+		return "Lugar [idLugar=" + idLugar + ", descripcion=" + descripcion + ", direccion=" + direccion + ", email="
+				+ email + ", emailResponsable=" + emailResponsable + ", idTipolugar=" + idTipolugar + ", nombre="
+				+ nombre + ", telefono=" + telefono + ", ubicacion=" + ubicacion + ", valoracion=" + valoracion + "]";
+	}
 }
