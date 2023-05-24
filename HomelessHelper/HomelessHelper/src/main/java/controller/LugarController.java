@@ -38,7 +38,7 @@ public class LugarController {
 	public List<Lugar> retrieveLugar() {
 
 		List<Lugar> lugares = lugarService.retrieveLugar();
-		Collections.reverse(lugares);
+		Collections.shuffle(lugares);
 		return lugares;
 	}
 
@@ -75,11 +75,11 @@ public class LugarController {
 	}
 	
 
-	@PostMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+		@PostMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> getLugaresPorTipo(@RequestBody Tipolugar idTipoLugar) {
 
 		List<Lugar> lugares = lugarService.getLugaresPorTipo(idTipoLugar.getIdTipolugar());
-		Collections.reverse(lugares);
+		Collections.shuffle(lugares);
 		return lugares;
 	}
 

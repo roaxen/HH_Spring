@@ -38,7 +38,7 @@ public class LugarSugeridoController {
 	public List<Lugarsugerido> retrieveLugarsugerido() {
 
 		List<Lugarsugerido> lugares = lugarService.retrieveLugarsugerido();
-		Collections.reverse(lugares);
+		Collections.shuffle(lugares);
 		return lugares;
 	}
 
@@ -79,7 +79,7 @@ public class LugarSugeridoController {
 	public List<Lugarsugerido> getLugarsugeridoesPorTipo(@RequestBody Tipolugar idTipoLugarsugerido) {
 
 		List<Lugarsugerido> lugares = lugarService.getLugaresPorTipo(idTipoLugarsugerido.getIdTipolugar());
-		Collections.reverse(lugares);
+		Collections.shuffle(lugares);
 		return lugares;
 	}
 
