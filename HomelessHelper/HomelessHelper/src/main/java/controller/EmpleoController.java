@@ -84,9 +84,15 @@ public class EmpleoController {
 		return empleos;
 	}
 
-	@GetMapping(value = "searchEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "searchEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> findEmpleosByWord(@RequestBody Credenciales valor) {
 
 		return empleoService.findEmpleosByWord(valor.getValor());
+	}
+	
+	@PostMapping(value = "myEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Empleo> findEmpleosByEmail(@RequestBody String email) {
+
+		return empleoService.findEmpleosByEmail(email);
 	}
 }

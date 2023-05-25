@@ -23,4 +23,6 @@ public interface EmpleoDao {
 	List<Empleo> getEmpleosPorTipo(int idTipoEmpleo);
 
 	List<Empleo> findEmpleosByWord(String valor);
+
+	List<Empleo> findEmpleosByEmail(String email);
 }

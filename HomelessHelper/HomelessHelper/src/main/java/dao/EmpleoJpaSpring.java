@@ -17,4 +17,7 @@ public interface EmpleoJpaSpring extends JpaRepository<Empleo, Integer> {
 
 	@Query("SELECT e FROM Empleo e WHERE e.titulo LIKE CONCAT('%', :valor, '%') OR e.descripcion LIKE CONCAT('%', :valor, '%') OR e.localidad LIKE CONCAT('%', :valor, '%') OR e.email LIKE CONCAT('%', :valor, '%')")
 	List<Empleo> findEmpleosByWord(@Param("valor") String valor);
+
+	@Query("SELECT e FROM Empleo e Where e.email = :email")
+	List<Empleo> findEmpleosByEmail(String email);
 }

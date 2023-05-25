@@ -22,4 +22,6 @@ public interface EmpleoService {
 
 	List<Empleo> findEmpleosByWord(String valor);
 
+	List<Empleo> findEmpleosByEmail(String email);
+
 }
