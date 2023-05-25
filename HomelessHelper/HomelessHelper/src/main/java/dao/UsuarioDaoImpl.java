@@ -33,6 +33,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public void removeUsuario(String email) {
 		// TODO Auto-generated method stub
+		usuarioDao.removeFavoritos(email);
 		usuarioDao.removeLugares(email);
 		usuarioDao.removeEmpleos(email);
 		usuarioDao.removeByEmail(email);

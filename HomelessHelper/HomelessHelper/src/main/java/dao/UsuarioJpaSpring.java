@@ -19,6 +19,11 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, String> {
 
 	@Modifying
 	@Transactional
+	@Query("DELETE FROM Favorito f WHERE f.id.email = ?1")
+	void removeFavoritos(String email);
+	
+	@Modifying
+	@Transactional
 	@Query("DELETE FROM Empleo e WHERE e.email = ?1")
 	void removeEmpleos(String email);
 
