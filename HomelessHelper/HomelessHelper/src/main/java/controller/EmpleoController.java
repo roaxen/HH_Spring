@@ -38,9 +38,10 @@ public class EmpleoController {
 	@GetMapping(value = "empleos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> retrieveEmpleo() {
 
-		List<Empleo> empleoes = empleoService.retrieveEmpleo();
-		Collections.reverse(empleoes);
-		return empleoes;
+		List<Empleo> empleos = empleoService.retrieveEmpleo();
+		empleos.sort((o1, o2) -> o1.getFecha().compareTo(o2.getFecha()));
+		
+		return empleos;
 	}
 
 	@GetMapping(value = "empleo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
