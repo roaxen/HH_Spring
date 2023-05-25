@@ -39,8 +39,9 @@ public class EmpleoController {
 	public List<Empleo> retrieveEmpleo() {
 
 		List<Empleo> empleos = empleoService.retrieveEmpleo();
-		empleos.sort((o1, o2) -> o1.getFecha().compareTo(o2.getFecha()));
-		
+
+		empleos.sort((o1, o2) -> o2.getFecha().compareTo(o1.getFecha()));
+
 		return empleos;
 	}
 
@@ -95,6 +96,8 @@ public class EmpleoController {
 	@PostMapping(value = "myEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> findEmpleosByEmail(@RequestBody Usuario email) {
 
-		return empleoService.findEmpleosByEmail(email.getEmail());
+		List<Empleo> empleos = empleoService.findEmpleosByEmail(email.getEmail());
+		empleos.sort((o1, o2) -> o2.getFecha().compareTo(o1.getFecha()));
+		return empleos;
 	}
 }
