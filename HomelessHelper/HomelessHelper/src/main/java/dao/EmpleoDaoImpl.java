@@ -66,4 +66,10 @@ public class EmpleoDaoImpl implements EmpleoDao {
 		// TODO Auto-generated method stub
 		return empleoDao.findEmpleosByEmail(email);
 	}
+
+	@Override
+	public List<Empleo> getEmpleos(String email) {
+		// TODO Auto-generated method stub
+		return empleoDao.getEmpleos(email);
+	}
 }

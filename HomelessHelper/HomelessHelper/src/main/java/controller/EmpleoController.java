@@ -49,6 +49,16 @@ public class EmpleoController {
 	public Empleo retrieveEmpleo(@PathVariable("id") int id) {
 		return empleoService.retrieveEmpleo(id);
 	}
+	
+	@PostMapping(value = "otrosEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Empleo> retrieveEmpleos(@RequestBody Usuario user) {
+
+		List<Empleo> empleos = empleoService.retrieveEmpleos(user.getEmail());
+
+		empleos.sort((o1, o2) -> o2.getFecha().compareTo(o1.getFecha()));
+
+		return empleos;
+	}
 
 	@PostMapping(value = "addEmpleo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Empleo saveEmpleo(@RequestBody Empleo empleo) {

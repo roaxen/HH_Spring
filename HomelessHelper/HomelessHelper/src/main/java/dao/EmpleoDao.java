@@ -25,4 +25,6 @@ public interface EmpleoDao {
 	List<Empleo> findEmpleosByWord(String valor);
 
 	List<Empleo> findEmpleosByEmail(String email);
+
+	List<Empleo> getEmpleos(String email);
 }

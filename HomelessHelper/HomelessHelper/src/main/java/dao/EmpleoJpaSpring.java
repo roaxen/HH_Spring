@@ -20,4 +20,7 @@ public interface EmpleoJpaSpring extends JpaRepository<Empleo, Integer> {
 
 	@Query("SELECT e FROM Empleo e Where e.email = :email")
 	List<Empleo> findEmpleosByEmail(String email);
+
+	@Query("SELECT e FROM Empleo e WHERE e.email <> :email")
+	List<Empleo> getEmpleos(String email);
 }
