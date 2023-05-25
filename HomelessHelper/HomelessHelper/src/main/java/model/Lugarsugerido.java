@@ -23,7 +23,6 @@ public class Lugarsugerido implements Serializable {
 
 	private String email;
 
-	@Column(name = "email_responsable")
 	private String emailResponsable;
 
 	@Column(name = "id_tipolugar")

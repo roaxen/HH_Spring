@@ -73,9 +73,8 @@ public class LugarController {
 	public Boolean deleteLugar(@PathVariable("id") int idLugar) {
 		return lugarService.deleteLugar(idLugar);
 	}
-	
 
-		@PostMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "getLugarByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Lugar> getLugaresPorTipo(@RequestBody Tipolugar idTipoLugar) {
 
 		List<Lugar> lugares = lugarService.getLugaresPorTipo(idTipoLugar.getIdTipolugar());

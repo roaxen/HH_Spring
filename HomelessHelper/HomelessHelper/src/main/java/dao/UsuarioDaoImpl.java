@@ -21,7 +21,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public void removeUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		usuarioDao.delete(usuario);
+		usuarioDao.deleteById(usuario.getEmail());
 	}
 
 	@Override
@@ -33,7 +33,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public void removeUsuario(String email) {
 		// TODO Auto-generated method stub
-		usuarioDao.deleteById(email);
+		usuarioDao.removeLugares(email);
+		usuarioDao.removeEmpleos(email);
+		usuarioDao.removeByEmail(email);
 	}
 
 	@Override
