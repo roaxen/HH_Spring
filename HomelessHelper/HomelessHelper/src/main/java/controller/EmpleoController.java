@@ -80,7 +80,7 @@ public class EmpleoController {
 
 		List<Empleo> empleos = empleoService.getEmpleosPorTipo(tipoempleo.getId());
 
-		Collections.shuffle(empleos);
+		Collections.reverse(empleos);
 
 		return empleos;
 	}
