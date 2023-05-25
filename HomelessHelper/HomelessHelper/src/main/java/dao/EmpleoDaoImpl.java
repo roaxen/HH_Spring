@@ -47,7 +47,6 @@ public class EmpleoDaoImpl implements EmpleoDao {
 	public void updateEmpleo(Empleo empleo) {
 		// TODO Auto-generated method stub
 		empleoDao.save(empleo);
-
 	}
 
 	@Override

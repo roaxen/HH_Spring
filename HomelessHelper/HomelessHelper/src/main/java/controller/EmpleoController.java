@@ -75,9 +75,10 @@ public class EmpleoController {
 	}
 
 	@PostMapping(value = "getEmpleoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Empleo> getEmpleoesPorTipo(@RequestBody Tipoempleo idTipoEmpleo) {
+	public List<Empleo> getEmpleosPorTipo(@RequestBody Integer tipoempleo) {
 		
-		List<Empleo> empleos = empleoService.getEmpleosPorTipo(idTipoEmpleo.getId());
+		System.out.println(tipoempleo);
+		List<Empleo> empleos = empleoService.getEmpleosPorTipo(tipoempleo);
 		
 		Collections.shuffle(empleos);
 		
