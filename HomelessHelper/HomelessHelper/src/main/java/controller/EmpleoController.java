@@ -76,13 +76,12 @@ public class EmpleoController {
 	}
 
 	@PostMapping(value = "getEmpleoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Empleo> getEmpleosPorTipo(@RequestBody Integer tipoempleo) {
-		
-		System.out.println(tipoempleo);
-		List<Empleo> empleos = empleoService.getEmpleosPorTipo(tipoempleo);
-		
+	public List<Empleo> getEmpleosPorTipo(@RequestBody Tipoempleo tipoempleo) {
+
+		List<Empleo> empleos = empleoService.getEmpleosPorTipo(tipoempleo.getId());
+
 		Collections.shuffle(empleos);
-		
+
 		return empleos;
 	}
 
@@ -91,7 +90,7 @@ public class EmpleoController {
 
 		return empleoService.findEmpleosByWord(valor.getValor());
 	}
-	
+
 	@PostMapping(value = "myEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> findEmpleosByEmail(@RequestBody Usuario email) {
 
