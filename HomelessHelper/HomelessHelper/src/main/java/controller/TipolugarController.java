@@ -28,11 +28,24 @@ public class TipolugarController {
 	@Autowired
 	TipolugarService tipolugarService;
 
+	/**
+	 * 
+	 * Recupera una lista de tipos de lugar en formato JSON.
+	 * 
+	 * @return Lista de objetos Tipolugar.
+	 */
 	@GetMapping(value = "tiposLugar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Tipolugar> retrieveLugar() {
 		return tipolugarService.retrieveTipolugar();
 	}
 
+	/**
+	 * 
+	 * Recupera un tipo de lugar específico por su ID en formato JSON.
+	 * 
+	 * @param idTipolugar El ID del tipo de lugar.
+	 * @return El objeto Tipolugar que coincide con el ID.
+	 */
 	@GetMapping(value = "tipoLugar/{idTipolugar}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Tipolugar retrieveLugar(@PathVariable int idTipolugar) {
 		return tipolugarService.getTipoLugar(idTipolugar);

@@ -28,11 +28,24 @@ public class TipoempleoController {
 	@Autowired
 	TipoempleoService tipoempleoService;
 
+	/**
+	 * 
+	 * Recupera una lista de tipos de empleo en formato JSON.
+	 * 
+	 * @return Lista de objetos Tipoempleo.
+	 */
 	@GetMapping(value = "tiposEmpleo", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Tipoempleo> retrieveEmpleo() {
 		return tipoempleoService.retrieveTipoempleo();
 	}
 
+	/**
+	 * 
+	 * Recupera un tipo de empleo específico por su ID en formato JSON.
+	 * 
+	 * @param idTipoempleo El ID del tipo de empleo.
+	 * @return El objeto Tipoempleo que coincide con el ID.
+	 */
 	@GetMapping(value = "tipoEmpleo/{idTipoempleo}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Tipoempleo retrieveEmpleo(@PathVariable int idTipoempleo) {
 		return tipoempleoService.getTipoEmpleo(idTipoempleo);
