@@ -49,7 +49,7 @@ public class EmpleoController {
 	public Empleo retrieveEmpleo(@PathVariable("id") int id) {
 		return empleoService.retrieveEmpleo(id);
 	}
-	
+
 	@PostMapping(value = "otrosEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Empleo> retrieveEmpleos(@RequestBody Usuario user) {
 

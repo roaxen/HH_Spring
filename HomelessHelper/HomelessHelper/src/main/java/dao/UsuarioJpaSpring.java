@@ -9,8 +9,6 @@ import model.Usuario;
 
 public interface UsuarioJpaSpring extends JpaRepository<Usuario, String> {
 
-
-
 	@Query("SELECT u FROM Usuario u WHERE u.email = ?1 and u.clave =?2")
 	Usuario checkUserExists(String email, String clave);
 
@@ -23,7 +21,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, String> {
 	@Transactional
 	@Query("DELETE FROM Empleo e WHERE e.email = ?1")
 	void removeEmpleos(String email);
-	
+
 	@Modifying
 	@Transactional
 	@Query("DELETE FROM Usuario u WHERE u.email = ?1")
