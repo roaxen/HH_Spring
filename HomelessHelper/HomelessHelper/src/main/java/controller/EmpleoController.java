@@ -25,6 +25,7 @@ import service.EmpleoService;
 import model.Credenciales;
 import model.Empleo;
 import model.Tipoempleo;
+import model.Usuario;
 
 import java.util.Collections;
 import java.util.List;
@@ -92,8 +93,8 @@ public class EmpleoController {
 	}
 	
 	@PostMapping(value = "myEmpleos", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Empleo> findEmpleosByEmail(@RequestBody String email) {
+	public List<Empleo> findEmpleosByEmail(@RequestBody Usuario email) {
 
-		return empleoService.findEmpleosByEmail(email);
+		return empleoService.findEmpleosByEmail(email.getEmail());
 	}
 }
