@@ -23,7 +23,7 @@ public class Lugarsugerido implements Serializable {
 
 	private String email;
 
-	private String emailResponsable;
+	private String email_Responsable;
 
 	@Column(name = "id_tipolugar")
 	private int idTipolugar;
@@ -72,11 +72,11 @@ public class Lugarsugerido implements Serializable {
 	}
 
 	public String getEmailResponsable() {
-		return this.emailResponsable;
+		return this.email_Responsable;
 	}
 
 	public void setEmailResponsable(String emailResponsable) {
-		this.emailResponsable = emailResponsable;
+		this.email_Responsable = emailResponsable;
 	}
 
 	public int getIdTipolugar() {
@@ -122,7 +122,7 @@ public class Lugarsugerido implements Serializable {
 	@Override
 	public String toString() {
 		return "Lugarsugerido [idLugarsugerido=" + idLugarsugerido + ", descripcion=" + descripcion + ", direccion=" + direccion + ", email="
-				+ email + ", emailResponsable=" + emailResponsable + ", idTipolugar=" + idTipolugar + ", nombre="
+				+ email + ", emailResponsable=" + email_Responsable + ", idTipolugar=" + idTipolugar + ", nombre="
 				+ nombre + ", telefono=" + telefono + ", ubicacion=" + ubicacion + ", valoracion=" + valoracion + "]";
 	}
 }
