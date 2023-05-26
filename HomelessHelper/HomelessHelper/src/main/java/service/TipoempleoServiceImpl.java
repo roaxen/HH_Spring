@@ -9,21 +9,29 @@ import dao.TipoempleoDao;
 import model.Tipoempleo;
 
 @Service
-public class TipoempleoServiceImpl implements TipoempleoService{
-	
+public class TipoempleoServiceImpl implements TipoempleoService {
+
 	@Autowired
 	TipoempleoDao tipoempleoDao;
 
+	/**
+	 * Obtiene todos los registros de tipo de empleo.
+	 *
+	 * @return Una lista de objetos Tipoempleo.
+	 */
 	@Override
 	public List<Tipoempleo> retrieveTipoempleo() {
-		// TODO Auto-generated method stub
 		return tipoempleoDao.retrieveTipoempleo();
 	}
 
+	/**
+	 * Obtiene un registro de tipo de empleo por su ID.
+	 *
+	 * @param idTipoempleo El ID del tipo de empleo a obtener.
+	 * @return El objeto Tipoempleo correspondiente al ID especificado.
+	 */
 	@Override
 	public Tipoempleo getTipoEmpleo(int idTipoempleo) {
-		// TODO Auto-generated method stub
 		return tipoempleoDao.getTipoempleo(idTipoempleo);
 	}
-
 }

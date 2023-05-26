@@ -14,51 +14,49 @@ public class LugarDaoImpl implements LugarDao {
 
 	@Override
 	public void addLugar(Lugar lugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para agregar un Lugar.
 		lugarDao.save(lugar);
 	}
 
 	@Override
 	public void removeLugar(Lugar lugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para eliminar un Lugar.
 		lugarDao.delete(lugar);
 	}
 
 	@Override
 	public List<Lugar> getLugar() {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para obtener todos los Lugares.
 		return lugarDao.findAll();
 	}
 
 	@Override
 	public void removeLugar(int idLugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para eliminar un Lugar por su ID.
 		lugarDao.deleteById(idLugar);
-
 	}
 
 	@Override
 	public Lugar retrieveLugar(int idLugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para obtener un Lugar por su ID.
 		return lugarDao.findById(idLugar).orElse(null);
 	}
 
 	@Override
 	public void updateLugar(Lugar lugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para actualizar un Lugar.
 		lugarDao.save(lugar);
-
 	}
 
 	@Override
 	public List<Lugar> getLugaresPorTipo(int idTipoLugar) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para obtener los Lugares por su tipo.
 		return lugarDao.findLugaresByTipoLugar(idTipoLugar);
 	}
 
 	@Override
 	public List<Lugar> findLugaresByWord(String valor) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para buscar Lugares por una palabra clave.
 		return lugarDao.findLugaresByWord(valor);
 	}
 }

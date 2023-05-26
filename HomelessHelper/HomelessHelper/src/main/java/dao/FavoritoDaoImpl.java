@@ -14,22 +14,21 @@ public class FavoritoDaoImpl implements FavoritoDao {
 
 	@Override
 	public List<Favorito> getFavoritos() {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para obtener todos los Favoritos.
 		return favoritoDao.findAll();
 	}
 
 	@Override
 	public List<Favorito> getFavorito(String email) {
-		// TODO Auto-generated method stub
-
+		// TODO: Implementar el método para obtener los Favoritos de un usuario por su
+		// dirección de correo electrónico.
 		List<Favorito> favoritos = favoritoDao.findByEmail(email);
-
 		return favoritos;
 	}
 
 	@Override
 	public Boolean addFavorito(Favorito favorito) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para agregar un Favorito.
 		if (favoritoDao.save(favorito) != null) {
 			return true;
 		} else {
@@ -39,7 +38,7 @@ public class FavoritoDaoImpl implements FavoritoDao {
 
 	@Override
 	public Boolean deleteFavorito(Favorito favorito) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para eliminar un Favorito.
 		if (favoritoDao.findByEmail(favorito.getId().getEmail()) != null) {
 			favoritoDao.delete(favorito);
 			return true;
@@ -50,7 +49,7 @@ public class FavoritoDaoImpl implements FavoritoDao {
 
 	@Override
 	public boolean checkFavExists(Favorito fav) {
-		// TODO Auto-generated method stub
+		// TODO: Implementar el método para verificar si un Favorito existe.
 		if (favoritoDao.checkFavExists(fav.getId().getIdLugar(), fav.getId().getEmail()) != null) {
 			return true;
 		} else {

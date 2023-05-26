@@ -14,15 +14,24 @@ public class TipolugarServiceImpl implements TipolugarService {
 	@Autowired
 	TipolugarDao tipolugardao;
 
+	/**
+	 * Obtiene un registro de tipo de lugar por su ID.
+	 *
+	 * @param idTipoLugar El ID del tipo de lugar a obtener.
+	 * @return El objeto Tipolugar correspondiente al ID especificado.
+	 */
 	@Override
 	public Tipolugar getTipoLugar(int idTipoLugar) {
-		// TODO Auto-generated method stub
 		return tipolugardao.getTipoLugar(idTipoLugar);
 	}
 
+	/**
+	 * Obtiene todos los registros de tipo de lugar.
+	 *
+	 * @return Una lista de objetos Tipolugar.
+	 */
 	@Override
 	public List<Tipolugar> retrieveTipolugar() {
-		// TODO Auto-generated method stub
 		return tipolugardao.retrieveTipolugar();
 	}
 

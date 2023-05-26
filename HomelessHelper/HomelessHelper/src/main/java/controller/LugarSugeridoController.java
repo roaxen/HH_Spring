@@ -109,21 +109,21 @@ public class LugarSugeridoController {
 	 * @return Lista de objetos Lugarsugerido filtrados por tipo en formato JSON.
 	 */
 	@PostMapping(value = "getLugarsugeridoByTipo", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Lugarsugerido> getLugarsugeridoesPorTipo(@RequestBody Tipolugar idTipoLugarsugerido) {
+	public List<Lugarsugerido> getLugarsugeridosPorTipo(@RequestBody Tipolugar idTipoLugarsugerido) {
 		List<Lugarsugerido> lugares = lugarService.getLugaresPorTipo(idTipoLugarsugerido.getIdTipolugar());
 		Collections.shuffle(lugares);
 		return lugares;
 	}
 
 	/**
-	 * Método que busca Lugarsugeridoes por una palabra clave.
+	 * Método que busca Lugarsugeridos por una palabra clave.
 	 * 
 	 * @param valor Objeto Credenciales que contiene el valor de búsqueda.
 	 * @return Lista de objetos Lugarsugerido que coinciden con la palabra clave en
 	 *         formato JSON.
 	 */
 	@PostMapping(value = "searchLugarsugeridos", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Lugarsugerido> findLugarsugeridoesByWord(@RequestBody Credenciales valor) {
+	public List<Lugarsugerido> findLugarsugeridosByWord(@RequestBody Credenciales valor) {
 		return lugarService.findLugaresByWord(valor.getValor());
 	}
 }
