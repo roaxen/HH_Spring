@@ -21,7 +21,7 @@ public interface LugarSugeridoJpaSpring extends JpaRepository<Lugarsugerido, Int
 	@Query("SELECT l FROM Lugarsugerido l WHERE l.idTipolugar = :idTipolugar")
 	List<Lugarsugerido> findLugaresByTipoLugar(@Param("idTipolugar") int idTipolugar);
 
-	@Query("SELECT l FROM Lugarsugerido l WHERE l.email = :email")
+	@Query("SELECT l FROM Lugarsugerido l WHERE l.emailResponsable = :email")
 	List<Lugarsugerido> findLugaresByEmail(@Param("email") String email);
 
 	@Query("SELECT l FROM Lugarsugerido l WHERE l.nombre LIKE CONCAT('%', :valor, '%') OR l.direccion LIKE CONCAT('%', :valor, '%') OR l.ubicacion LIKE CONCAT('%', :valor, '%') OR l.descripcion LIKE CONCAT('%', :valor, '%') OR l.email LIKE CONCAT('%', :valor, '%') OR l.emailResponsable LIKE CONCAT('%', :valor, '%')")
